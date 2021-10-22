@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
-import { Grid, Typography, Stack, Item, makeStyles } from '@material-ui/core'
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { AppBar, Grid, Typography, IconButton, Link, Toolbar, makeStyles } from '@material-ui/core'
 import { styled } from '@material-ui/styles'
+
+import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles(() => ({
 	navContainer: {},
