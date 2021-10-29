@@ -1,0 +1,11 @@
+.box1 {
+	height: 500;
+	width: 400;
+	display: 'flex';
+	position: 'absolute';
+	background-color: '#828290';
+	opacity: '80%';
+	transform: 'rotate(-29deg)';
+	top: -98;
+	left: -345;
+}

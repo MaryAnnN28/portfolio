@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
 import { AppBar, Toolbar, Box, Grid, Typography, IconButton, Link, makeStyles } from '@material-ui/core'
 import { styled } from '@material-ui/styles'
+import { gsap } from 'gsap'
 
 import MenuIcon from '@material-ui/icons/Menu'
 
@@ -14,6 +15,31 @@ const Navbar = (props) => {
 	const classes = useStyles()
 	const { onSidebarMobileOpen, onMobileClose, openMobile } = props
 	const location = useLocation()
+	const link1 = useRef()
+	const link2 = useRef()
+	const link3 = useRef()
+	const link4 = useRef()
+	const link5 = useRef()
+
+	const onEnter = ({ currentTarget }) => {
+		gsap.to(currentTarget, { color: 'red' })
+	}
+
+	const onLeave = ({ currentTarget }) => {
+		gsap.to(currentTarget, { color: '#e5e3e3' })
+	}
+
+	function fadeIn(target, vars) {
+		return gsap.from(target, { opacity: 0, ...vars })
+	}
+
+	useLayoutEffect(() => {
+		const animation = fadeIn(link1.current, { y: -30, duration: 0.75, ease: 'back.out(2)' })
+		const animation1 = fadeIn(link2.current, { y: -30, duration: 0.75, ease: 'back.out(2)', delay: 0.2 })
+		const animation2 = fadeIn(link3.current, { y: -30, duration: 0.75, ease: 'back.out(2)', delay: 0.4 })
+		const animation3 = fadeIn(link4.current, { y: -30, duration: 0.75, ease: 'back.out(2)', delay: 0.6 })
+		const animation4 = fadeIn(link5.current, { y: -30, duration: 0.75, ease: 'back.out(2)', delay: 0.8 })
+	}, [])
 
 	useEffect(() => {
 		if (openMobile & onMobileClose) {
@@ -28,13 +54,11 @@ const Navbar = (props) => {
 					sx={{
 						alignItems: 'center',
 						flexGrow: 1,
-						ml: 10,
-						mt: 2,
+						ml: 12,
+						mt: 1.5,
 					}}
 				>
-					<Typography variant="h2" style={{ color: '#e6e6e6' }}>
-						MN
-					</Typography>
+					<Typography style={{ fontSize: '44pt', color: '#e6e6e6' }}>MN</Typography>
 				</Box>
 			</Grid>
 			<Grid item md={4}>
@@ -52,10 +76,12 @@ const Navbar = (props) => {
 						to="/about"
 						underline="none"
 						sx={{
-							px: 1,
+							px: 0.5,
 						}}
+						onMouseEnter={onEnter}
+						onMouseLeave={onLeave}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }}>
+						<Typography variant="body1" style={{ color: '#e5e3e3' }} className="link1" ref={link1}>
 							About
 						</Typography>
 					</Link>
@@ -64,10 +90,10 @@ const Navbar = (props) => {
 						to="/experience"
 						underline="none"
 						sx={{
-							px: 1,
+							px: 0.5,
 						}}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }}>
+						<Typography variant="body1" style={{ color: '#e5e3e3' }} classNam="link2" ref={link2}>
 							Experience
 						</Typography>
 					</Link>
@@ -79,7 +105,7 @@ const Navbar = (props) => {
 							px: 1,
 						}}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }}>
+						<Typography variant="body1" style={{ color: '#e5e3e3' }} classNam="link3" ref={link3}>
 							Projects
 						</Typography>
 					</Link>
@@ -88,10 +114,10 @@ const Navbar = (props) => {
 						to="/blog"
 						underline="none"
 						sx={{
-							px: 1,
+							px: 0.5,
 						}}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }}>
+						<Typography variant="body1" style={{ color: '#e5e3e3' }} classNam="link4" ref={link4}>
 							Blog
 						</Typography>
 					</Link>
@@ -100,10 +126,10 @@ const Navbar = (props) => {
 						to="/contact"
 						underline="none"
 						sx={{
-							px: 1,
+							px: 0.5,
 						}}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }}>
+						<Typography variant="body1" style={{ color: '#e5e3e3' }} classNam="link5" ref={link5}>
 							Contact
 						</Typography>
 					</Link>
