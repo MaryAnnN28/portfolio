@@ -48,26 +48,16 @@ const Navbar = (props) => {
 	}, [location.pathname])
 
 	return (
-		<Grid container sx={{ paddingTop: 2 }}>
-			<Grid item md={4}>
-				<Box
-					sx={{
-						alignItems: 'center',
-						flexGrow: 1,
-						ml: 12,
-						mt: 1.5,
-					}}
-				>
-					<Typography style={{ fontSize: '44pt', color: '#e6e6e6' }}>MN</Typography>
-				</Box>
-			</Grid>
-			<Grid item md={4}>
+		<Grid container sx={{ paddingTop: 2, pl: 10 }}>
+			<Grid item md={5} sx={{ ml: 10 }}>
 				<Box
 					sx={{
 						alignItems: 'center',
 						flexGrow: 1,
 						display: 'flex',
 						mt: 5,
+						ml: 20,
+						mr: 20,
 						justifyContent: 'space-between',
 					}}
 				>
@@ -85,18 +75,7 @@ const Navbar = (props) => {
 							About
 						</Typography>
 					</Link>
-					<Link
-						component={RouterLink}
-						to="/experience"
-						underline="none"
-						sx={{
-							px: 0.5,
-						}}
-					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }} classNam="link2" ref={link2}>
-							Experience
-						</Typography>
-					</Link>
+
 					<Link
 						component={RouterLink}
 						to="/projects"
@@ -135,7 +114,19 @@ const Navbar = (props) => {
 					</Link>
 				</Box>
 			</Grid>
-			<Grid item md={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+			<Grid item md={2}>
+				<Box
+					sx={{
+						alignItems: 'center',
+						flexGrow: 1,
+						ml: 12,
+						mt: 1.5,
+					}}
+				>
+					<Typography style={{ fontSize: '44pt', color: '#e6e6e6' }}>MN</Typography>
+				</Box>
+			</Grid>
+			<Grid item md={5} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
 				<Box
 					sx={{
 						alignItems: 'right',

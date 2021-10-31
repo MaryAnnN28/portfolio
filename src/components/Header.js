@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react'
 import { Box, Grid, Typography, makeStyles } from '@material-ui/core'
 import Navbar from './Navbar'
 import { gsap } from 'gsap'
+import { Rotate90DegreesCcw } from '@material-ui/icons'
 
 const useStyles = makeStyles(() => ({
 	headerContainer: {
@@ -20,65 +21,52 @@ const useStyles = makeStyles(() => ({
 		overflow: 'hidden',
 		overflowX: 'hidden',
 	},
-	circle1: {
+	box1: {
 		height: 400,
 		width: 400,
-		borderRadius: '50%',
 		display: 'flex',
 		position: 'absolute',
+		transform: 'rotate(58deg)',
 		backgroundColor: '#828290',
-		opacity: '80%',
+		opacity: '70%',
 		top: -80,
 		left: -125,
 	},
 
-	circle2: {
-		height: 900,
-		width: 900,
+	box2: {
+		height: 700,
+		width: 700,
 		display: 'flex',
-		borderRadius: '50%',
 		position: 'absolute',
-		top: -40,
-		right: -330,
-		opacity: '96%',
-		backgroundColor: '#111111',
+		transform: 'rotate(39deg)',
+		top: -80,
+		right: -265,
+		opacity: '70%',
+		backgroundColor: '#828290',
 	},
 
-	circle3: {
-		height: 800,
-		width: 800,
+	box3: {
+		height: 700,
+		width: 700,
 		display: 'flex',
-		borderRadius: '50%',
 		position: 'absolute',
-		top: -30,
+		borderRadius: '50%',
+		// transform: 'rotate(45deg)',
+		top: -300,
 		right: -300,
-		opacity: '94%',
-		backgroundColor: '#131313',
+		opacity: '70%',
+		backgroundColor: '#181818',
 	},
-
-	circle4: {
-		height: 650,
-		width: 650,
+	box4: {
+		height: 800,
+		width: 700,
 		display: 'flex',
-		borderRadius: '50%',
 		position: 'absolute',
-		top: -20,
-		right: -240,
-		opacity: '90%',
-		backgroundColor: '#191919',
-	},
-	circle5: {
-		height: 550,
-		width: 550,
-		display: 'flex',
-		borderRadius: '50%',
-		position: 'absolute',
-		top: -10,
-		right: -200,
-		opacity: '94%',
-		backgroundColor: '#373737',
-		// background: 'linear-gradient(40deg, rgba(25,25,25,1) 30%, rgba(130,130,144,1) 98%)',
-		// background: 'radial-gradient(circle, rgba(130,130,144,1) 6%, rgba(25,25,25,1) 99%)',
+		// transform: 'rotate(90deg)',
+		top: 0,
+		right: 0,
+		opacity: '60%',
+		backgroundColor: '#131320',
 	},
 }))
 
@@ -86,20 +74,19 @@ const Header = () => {
 	const classes = useStyles()
 	const title = useRef()
 	const subtitle = useRef()
-	const leftCircle = useRef()
-	const rightCircle1 = useRef()
-	const rightCircle2 = useRef()
+	const box1 = useRef()
+	const box2 = useRef()
+	const box3 = useRef()
+	const box4 = useRef()
 
 	function fadeIn(target, vars) {
-		return gsap.from(target, { opacity: 0, ...vars })
+		return gsap.from(target, { opacity: 0.8, ...vars })
 	}
 
 	useLayoutEffect(() => {
-		const animation = fadeIn(title.current, { y: 100, duration: 3, delay: 2.5 })
-		const animation1 = fadeIn(subtitle.current, { y: -100, duration: 3, delay: 2.75 })
-		const animation2 = fadeIn(leftCircle.current, { x: -100, duration: 3, delay: 1.5 })
-		// const animation3 = fadeIn(rightCircle1.current, { x: 100, duration: 4 })
-		// const animation4 = fadeIn(rightCircle2.current, { x: 100, duration: 4, delay: 2.25 })
+		const animation = fadeIn(title.current, { y: 100, duration: 3, delay: 1.5 })
+		const animation1 = fadeIn(subtitle.current, { y: -100, duration: 3, delay: 2.5 })
+		const animation2 = fadeIn(box4.current, { x: 600, duration: 3, delay: 1.5 })
 	}, [])
 
 	return (
@@ -108,11 +95,11 @@ const Header = () => {
 				<Navbar className={classes.navbar} />
 
 				<div className={classes.boxContainer}>
-					<div className={classes.circle1} ref={leftCircle} />
-					<div className={classes.circle2} ref={rightCircle1} />
-					<div className={classes.circle3} ref={rightCircle2} />
-					<div className={classes.circle4} ref={rightCircle2} />
-					<div className={classes.circle5} ref={rightCircle2} />
+					{/* <div className={classes.box1} ref={box1} />*/}
+					{/* <div className={classes.box2} ref={box2} /> */}
+
+					<div className={classes.box3} ref={box3} />
+					<div className={classes.box4} ref={box4} />
 				</div>
 
 				<Grid container>
