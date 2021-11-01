@@ -1,14 +1,42 @@
 import React, { useEffect, useRef, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
-import { AppBar, Toolbar, Box, Grid, Typography, IconButton, Link, makeStyles } from '@material-ui/core'
+import {
+	AppBar,
+	Toolbar,
+	Box,
+	Grid,
+	Typography,
+	IconButton,
+	Link,
+	makeStyles,
+} from '@material-ui/core'
 import { styled } from '@material-ui/styles'
 import { gsap } from 'gsap'
+import '../assets/Navbar.css'
 
-import MenuIcon from '@material-ui/icons/Menu'
+import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
 
 const useStyles = makeStyles(() => ({
-	navContainer: {},
+	link: {
+		fontFamily: 'Montserrat',
+		fontSize: '10pt',
+		fontWeight: 300,
+		textTransform: 'uppercase',
+		color: '#e6e6e6',
+		letterSpacing: '1.5pt',
+	},
+	logo: {
+		fontFamily: 'Gruppo',
+		fontSize: '50pt',
+		color: '#e6e6e6',
+		letterSpacing: '5px',
+	},
+	icons: {
+		marginRight: '2em',
+		zIndex: 1,
+		color: '#e6e6e6',
+	},
 }))
 
 const Navbar = (props) => {
@@ -22,7 +50,7 @@ const Navbar = (props) => {
 	const link5 = useRef()
 
 	const onEnter = ({ currentTarget }) => {
-		gsap.to(currentTarget, { color: 'red' })
+		gsap.to(currentTarget, { color: '#f73788' })
 	}
 
 	const onLeave = ({ currentTarget }) => {
@@ -35,10 +63,30 @@ const Navbar = (props) => {
 
 	useLayoutEffect(() => {
 		const animation = fadeIn(link1.current, { y: -30, duration: 0.75, ease: 'back.out(2)' })
-		const animation1 = fadeIn(link2.current, { y: -30, duration: 0.75, ease: 'back.out(2)', delay: 0.2 })
-		const animation2 = fadeIn(link3.current, { y: -30, duration: 0.75, ease: 'back.out(2)', delay: 0.4 })
-		const animation3 = fadeIn(link4.current, { y: -30, duration: 0.75, ease: 'back.out(2)', delay: 0.6 })
-		const animation4 = fadeIn(link5.current, { y: -30, duration: 0.75, ease: 'back.out(2)', delay: 0.8 })
+		const animation1 = fadeIn(link2.current, {
+			y: -30,
+			duration: 0.75,
+			ease: 'back.out(2)',
+			delay: 0.2,
+		})
+		const animation2 = fadeIn(link3.current, {
+			y: -30,
+			duration: 0.75,
+			ease: 'back.out(2)',
+			delay: 0.4,
+		})
+		const animation3 = fadeIn(link4.current, {
+			y: -30,
+			duration: 0.75,
+			ease: 'back.out(2)',
+			delay: 0.6,
+		})
+		const animation4 = fadeIn(link5.current, {
+			y: -30,
+			duration: 0.75,
+			ease: 'back.out(2)',
+			delay: 0.8,
+		})
 	}, [])
 
 	useEffect(() => {
@@ -48,17 +96,29 @@ const Navbar = (props) => {
 	}, [location.pathname])
 
 	return (
-		<Grid container sx={{ paddingTop: 2, pl: 10 }}>
-			<Grid item md={5} sx={{ ml: 10 }}>
+		<Grid container className={classes.navContainer} sx={{ paddingTop: 1.5, pl: 10 }}>
+			<Grid item md={2}>
 				<Box
 					sx={{
 						alignItems: 'center',
 						flexGrow: 1,
+						ml: 10,
+					}}
+				>
+					<Typography className={classes.logo}>MN</Typography>
+				</Box>
+			</Grid>
+			<Grid item md={7}>
+				<Box
+					sx={{
+						alignItems: 'center',
 						display: 'flex',
-						mt: 5,
-						ml: 20,
-						mr: 20,
 						justifyContent: 'space-between',
+						mt: 6,
+						ml: 10,
+						mr: 10,
+						pl: 20,
+						pr: 20,
 					}}
 				>
 					<Link
@@ -71,7 +131,7 @@ const Navbar = (props) => {
 						onMouseEnter={onEnter}
 						onMouseLeave={onLeave}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }} className="link1" ref={link1}>
+						<Typography className={classes.link} ref={link1}>
 							About
 						</Typography>
 					</Link>
@@ -84,7 +144,7 @@ const Navbar = (props) => {
 							px: 1,
 						}}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }} classNam="link3" ref={link3}>
+						<Typography className={classes.link} ref={link3}>
 							Projects
 						</Typography>
 					</Link>
@@ -96,7 +156,7 @@ const Navbar = (props) => {
 							px: 0.5,
 						}}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }} classNam="link4" ref={link4}>
+						<Typography className={classes.link} ref={link4}>
 							Blog
 						</Typography>
 					</Link>
@@ -108,36 +168,33 @@ const Navbar = (props) => {
 							px: 0.5,
 						}}
 					>
-						<Typography variant="body1" style={{ color: '#e5e3e3' }} classNam="link5" ref={link5}>
+						<Typography className={classes.link} ref={link5}>
 							Contact
 						</Typography>
 					</Link>
 				</Box>
 			</Grid>
-			<Grid item md={2}>
-				<Box
-					sx={{
-						alignItems: 'center',
-						flexGrow: 1,
-						ml: 12,
-						mt: 1.5,
-					}}
-				>
-					<Typography style={{ fontSize: '44pt', color: '#e6e6e6' }}>MN</Typography>
-				</Box>
-			</Grid>
-			<Grid item md={5} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+			<Grid item md={3} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
 				<Box
 					sx={{
 						alignItems: 'right',
-						flexGrow: 1,
+						display: 'flex',
 						ml: 10,
-						mt: 2,
+						mr: 40,
+						mt: 6,
+						color: '#efefef',
+						zIndex: 22,
 					}}
 				>
-					{/* <Typography variant="h2" sx={{ textDecoration: 'none' }}>
-						MN
-					</Typography> */}
+					<span className={classes.icons}>
+						<FaGithub fontSize="22px" />
+					</span>
+					<span className={classes.icons}>
+						<FaLinkedinIn fontSize="22px" />
+					</span>
+					<span className={classes.icons}>
+						<FaTwitter fontSize="22px" />
+					</span>
 				</Box>
 			</Grid>
 		</Grid>

@@ -2,7 +2,6 @@ import React, { useLayoutEffect, useRef } from 'react'
 import { Box, Grid, Typography, makeStyles } from '@material-ui/core'
 import Navbar from './Navbar'
 import { gsap } from 'gsap'
-import { Rotate90DegreesCcw } from '@material-ui/icons'
 
 const useStyles = makeStyles(() => ({
 	headerContainer: {
@@ -21,16 +20,34 @@ const useStyles = makeStyles(() => ({
 		overflow: 'hidden',
 		overflowX: 'hidden',
 	},
+	mainHeader: {
+		fontSize: '52pt',
+		color: '#A69580',
+		textTransform: 'uppercase',
+		letterSpacing: '12px',
+		fontFamily: 'Montserrat',
+		fontWeight: 400,
+		marginBottom: '2px',
+	},
+	subtitle: {
+		fontSize: '24pt',
+		color: '#e6e6e6',
+		letterSpacing: '12px',
+		fontFamily: 'Montserrat',
+		fontWeight: 200,
+		marginLeft: '5px',
+	},
 	box1: {
 		height: 400,
 		width: 400,
 		display: 'flex',
 		position: 'absolute',
-		transform: 'rotate(58deg)',
-		backgroundColor: '#828290',
-		opacity: '70%',
-		top: -80,
-		left: -125,
+		transform: 'rotate(-29deg)',
+		backgroundColor: '#212121',
+		opacity: '60%',
+		top: -18,
+		left: -330,
+		zIndex: 1,
 	},
 
 	box2: {
@@ -38,11 +55,12 @@ const useStyles = makeStyles(() => ({
 		width: 700,
 		display: 'flex',
 		position: 'absolute',
-		transform: 'rotate(39deg)',
+		transform: 'rotate(27deg)',
 		top: -80,
-		right: -265,
-		opacity: '70%',
-		backgroundColor: '#828290',
+		right: -300,
+		opacity: '60%',
+		// backgroundColor: '#1d1e22',
+		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
 	},
 
 	box3: {
@@ -50,23 +68,11 @@ const useStyles = makeStyles(() => ({
 		width: 700,
 		display: 'flex',
 		position: 'absolute',
-		borderRadius: '50%',
-		// transform: 'rotate(45deg)',
-		top: -300,
-		right: -300,
-		opacity: '70%',
-		backgroundColor: '#181818',
-	},
-	box4: {
-		height: 800,
-		width: 700,
-		display: 'flex',
-		position: 'absolute',
-		// transform: 'rotate(90deg)',
-		top: 0,
-		right: 0,
+		transform: 'rotate(67deg)',
+		top: 10,
+		right: -415,
 		opacity: '60%',
-		backgroundColor: '#131320',
+		backgroundColor: '#1d1e22',
 	},
 }))
 
@@ -84,32 +90,29 @@ const Header = () => {
 	}
 
 	useLayoutEffect(() => {
-		const animation = fadeIn(title.current, { y: 100, duration: 3, delay: 1.5 })
-		const animation1 = fadeIn(subtitle.current, { y: -100, duration: 3, delay: 2.5 })
-		const animation2 = fadeIn(box4.current, { x: 600, duration: 3, delay: 1.5 })
+		// const animation = fadeIn(title.current, { y: 100, duration: 3, delay: 1.5 })
+		// const animation1 = fadeIn(subtitle.current, { y: -120, duration: 3, delay: 1.5 })
 	}, [])
 
 	return (
 		<>
 			<Box className={classes.headerContainer}>
 				<Navbar className={classes.navbar} />
-
 				<div className={classes.boxContainer}>
-					{/* <div className={classes.box1} ref={box1} />*/}
-					{/* <div className={classes.box2} ref={box2} /> */}
+					<div className={classes.box1} ref={box1} />
 
+					<div className={classes.box2} ref={box2} />
 					<div className={classes.box3} ref={box3} />
-					<div className={classes.box4} ref={box4} />
 				</div>
 
 				<Grid container>
 					<Grid item md={7}>
 						<Box sx={{ pl: 20, pt: 24 }}>
 							<div className="box" ref={title}>
-								<Typography style={{ fontSize: '64pt', color: '#e6e6e6', textTransform: 'uppercase', letterSpacing: '12px' }}>Building</Typography>
+								<Typography className={classes.mainHeader}>Building</Typography>
 							</div>
 							<div className="box1" ref={subtitle}>
-								<Typography style={{ fontSize: '30pt', color: '#e6e6e6', letterSpacing: '6px', fontWeight: 300 }}>Enhanced Experiences</Typography>
+								<Typography className={classes.subtitle}>Enhanced Experiences</Typography>
 							</div>
 						</Box>
 					</Grid>
