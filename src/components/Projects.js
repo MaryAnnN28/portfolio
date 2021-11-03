@@ -11,6 +11,7 @@ const useStyles = makeStyles(() => ({
 		height: '90vh',
 		display: 'flex',
 		justifyContent: 'center',
+		paddingBottom: '4rem',
 
 		// alignItems: 'center',
 	},
@@ -28,6 +29,10 @@ const useStyles = makeStyles(() => ({
 	projectImg: {
 		width: 320,
 		height: 220,
+		filter: 'hue-rotate(100deg) invert(95%) sepia(10%)',
+		'&:hover': {
+			filter: 'hue-rotate(0deg)',
+		},
 	},
 }))
 

@@ -43,8 +43,8 @@ const useStyles = makeStyles(() => ({
 		display: 'flex',
 		position: 'absolute',
 		transform: 'rotate(-29deg)',
-		backgroundColor: '#212121',
-		opacity: '60%',
+		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
+		opacity: '40%',
 		top: -18,
 		left: -330,
 		zIndex: 1,
@@ -58,7 +58,7 @@ const useStyles = makeStyles(() => ({
 		transform: 'rotate(27deg)',
 		top: -80,
 		right: -300,
-		opacity: '60%',
+		opacity: '50%',
 		// backgroundColor: '#1d1e22',
 		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
 	},
@@ -71,7 +71,7 @@ const useStyles = makeStyles(() => ({
 		transform: 'rotate(67deg)',
 		top: 10,
 		right: -415,
-		opacity: '60%',
+		opacity: '30%',
 		backgroundColor: '#1d1e22',
 	},
 }))
@@ -90,8 +90,8 @@ const Header = () => {
 	}
 
 	useLayoutEffect(() => {
-		// const animation = fadeIn(title.current, { y: 100, duration: 3, delay: 1.5 })
-		// const animation1 = fadeIn(subtitle.current, { y: -120, duration: 3, delay: 1.5 })
+		const animation = fadeIn(title.current, { y: 50, duration: 2 })
+		const animation1 = fadeIn(subtitle.current, { y: 50, duration: 2, delay: 1.5 })
 	}, [])
 
 	return (
@@ -107,7 +107,7 @@ const Header = () => {
 
 				<Grid container>
 					<Grid item md={7}>
-						<Box sx={{ pl: 20, pt: 24 }}>
+						<Box sx={{ pl: 20, pt: 26 }}>
 							<div className="box" ref={title}>
 								<Typography className={classes.mainHeader}>Building</Typography>
 							</div>
