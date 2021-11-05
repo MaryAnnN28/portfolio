@@ -45,10 +45,23 @@ const useStyles = makeStyles(() => ({
 		position: 'absolute',
 		transform: 'rotate(-29deg)',
 		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
-		opacity: '40%',
+		opacity: '50%',
 		top: -18,
 		left: -330,
 		zIndex: 1,
+	},
+
+	box1a: {
+		height: 700,
+		width: 700,
+		display: 'flex',
+		position: 'absolute',
+		transform: 'rotate(27deg)',
+		top: -80,
+		right: -330,
+		opacity: '50%',
+		backgroundColor: '#B59D4C',
+		// background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
 	},
 
 	box2: {
@@ -82,9 +95,9 @@ const Header = () => {
 	const title = useRef()
 	const subtitle = useRef()
 	const box1 = useRef()
+	const box1a = useRef()
 	const box2 = useRef()
 	const box3 = useRef()
-	const box4 = useRef()
 
 	function fadeIn(target, vars) {
 		return gsap.from(target, { opacity: 0.8, ...vars })
@@ -101,6 +114,7 @@ const Header = () => {
 				<Navbar className={classes.navbar} />
 				<div className={classes.boxContainer}>
 					<div className={classes.box1} ref={box1} />
+					<div className={classes.box1a} ref={box1a} />
 
 					<div className={classes.box2} ref={box2} />
 					<div className={classes.box3} ref={box3} />

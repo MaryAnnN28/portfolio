@@ -1,6 +1,6 @@
 import React from 'react'
 import { Typography, makeStyles } from '@material-ui/core'
-import { Header, About, Projects, Blog } from './components'
+import { Header, About, Projects, Blog, Contact, Footer } from './components'
 import './assets/index.css'
 
 const useStyles = makeStyles(() => ({
@@ -21,6 +21,8 @@ const App = () => {
 			<About />
 			<Projects />
 			<Blog />
+			<Contact />
+			<Footer />
 		</div>
 	)
 }
