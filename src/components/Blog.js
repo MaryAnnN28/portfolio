@@ -8,11 +8,10 @@ import Memeshare from '../images/memeshare.jpeg'
 
 const useStyles = makeStyles(() => ({
 	projectsContainer: {
-		height: '100vh',
+		height: '90vh',
 		display: 'flex',
 		justifyContent: 'center',
 		paddingBottom: '4rem',
-		marginBottom: '2rem',
 
 		// alignItems: 'center',
 	},
@@ -38,7 +37,7 @@ const useStyles = makeStyles(() => ({
 	},
 }))
 
-const Projects = () => {
+const Blog = () => {
 	const classes = useStyles()
 
 	return (
@@ -46,7 +45,7 @@ const Projects = () => {
 			<Grid container>
 				<Grid item md={12} lg={12}>
 					<Box sx={{ pl: 20 }}>
-						<Typography className={classes.projectsTitle}>projects</Typography>
+						<Typography className={classes.projectsTitle}>blog</Typography>
 					</Box>
 				</Grid>
 				<Grid item md={12} lg={12}>
@@ -65,4 +64,4 @@ const Projects = () => {
 	)
 }
 
-export default Projects
+export default Blog

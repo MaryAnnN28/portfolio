@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
 		zIndex: 1,
 	},
 	aboutTitle: {
-		color: '#A69580',
+		color: '#B59D4C',
 		fontFamily: 'Montserrat',
 		// textTransform: 'uppercase',
 		fontSize: '18pt',
@@ -52,7 +52,7 @@ const useStyles = makeStyles(() => ({
 		lineHeight: '1.8',
 	},
 	techTitle: {
-		color: '#A69580',
+		color: '#B59D4C',
 		fontSize: '11pt',
 		letterSpacing: '2px',
 		fontFamily: 'Montserrat',
@@ -105,24 +105,23 @@ const About = () => {
 					</Box>
 					<Box sx={{ pl: 24, pr: 1, mb: 3 }}>
 						<Typography className={classes.aboutText}>
-							I’m Mary Ann Navarrete, a Full-Stack Software Engineer and Project Manager based in
-							the Washington, D.C. area. I enjoy building things that solve problems, increase
-							efficiency, and give back to the community. In 2020, I decided to pursue my dream of
-							becoming a software engineer after years of using HTML & CSS to spruce up personal
-							projects.
+							I’m Mary Ann Navarrete, a Full-Stack Software Engineer and Project Manager based in the Washington, D.C.
+							area. I enjoy building things that solve problems, increase efficiency, and give back to the community. In
+							2020, I decided to pursue my dream of becoming a software engineer after years of using HTML & CSS to
+							spruce up personal projects.
 						</Typography>
 					</Box>
 					<Box sx={{ pl: 24, pr: 1, mb: 3 }}>
 						<Typography className={classes.aboutText}>
-							My background comes from 15 years of sales & marketing roles in the hospitality
-							industry. Part problem-solver who loves data-driven analysis, & part design
-							enthusiast, I get to enjoy both worlds as a full stack software developer.
+							My background comes from 15 years of sales & marketing roles in the hospitality industry. Part
+							problem-solver who loves data-driven analysis, & part design enthusiast, I get to enjoy both worlds as a
+							full stack software developer.
 						</Typography>
 					</Box>
 					<Box sx={{ pl: 24, pr: 1, mb: 5 }}>
 						<Typography className={classes.aboutText}>
-							Outside of coding, I enjoy watching NBA games (go Sixers!), documentaries, reading,
-							golf, learning, cooking, traveling & snuggling with my shih tzu Toby.
+							Outside of coding, I enjoy watching NBA games (go Sixers!), documentaries, reading, golf, learning,
+							cooking, traveling & snuggling with my shih tzu Toby.
 						</Typography>
 					</Box>
 					<Box sx={{ pl: 24, pr: 1 }}>

@@ -1,21 +1,12 @@
 import React, { useEffect, useRef, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
-import {
-	AppBar,
-	Toolbar,
-	Box,
-	Grid,
-	Typography,
-	IconButton,
-	Link,
-	makeStyles,
-} from '@material-ui/core'
+import { AppBar, Toolbar, Box, Grid, Typography, IconButton, Link, makeStyles } from '@material-ui/core'
 import { styled } from '@material-ui/styles'
 import { gsap } from 'gsap'
 import '../assets/Navbar.css'
 
-import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaTwitter, FaMediumM } from 'react-icons/fa'
 
 const useStyles = makeStyles(() => ({
 	link: {
@@ -24,18 +15,30 @@ const useStyles = makeStyles(() => ({
 		fontWeight: 300,
 		textTransform: 'uppercase',
 		color: '#e6e6e6',
+		'&:hover': {
+			color: '#898989',
+			textShadow: '2px 2px #f9f9f9',
+			fontWeight: 500,
+		},
 		letterSpacing: '1.5pt',
 	},
 	logo: {
 		fontFamily: 'Gruppo',
 		fontSize: '50pt',
 		color: '#e6e6e6',
+		'&:hover': {
+			color: '#B59D4C',
+			fontWeight: 100,
+		},
 		letterSpacing: '5px',
 	},
 	icons: {
-		marginRight: '2em',
+		marginRight: '1.5em',
 		zIndex: 1,
 		color: '#e6e6e6',
+		'&:hover': {
+			color: '#383838',
+		},
 	},
 }))
 
@@ -180,17 +183,22 @@ const Navbar = (props) => {
 						alignItems: 'right',
 						display: 'flex',
 						ml: 10,
-						mr: 40,
-						mt: 6,
+						mr: 30,
+						mt: 5.5,
 						color: '#efefef',
 						zIndex: 22,
 					}}
 				>
 					<span className={classes.icons}>
-						<FaGithub fontSize="22px" />
+						<Link href="https://github.com/MaryAnnN28" target="_blank" sx={{ color: '#efefef' }}>
+							<FaGithub fontSize="22px" />
+						</Link>
 					</span>
 					<span className={classes.icons}>
 						<FaLinkedinIn fontSize="22px" />
+					</span>
+					<span className={classes.icons}>
+						<FaMediumM fontSize="22px" />
 					</span>
 					<span className={classes.icons}>
 						<FaTwitter fontSize="22px" />
