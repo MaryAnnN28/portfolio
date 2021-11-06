@@ -9,13 +9,10 @@ import {
 	CardHeader,
 	CardContent,
 	CardMedia,
+	Chip,
 	makeStyles,
 } from '@material-ui/core'
-import NavCRM from '../images/navcrm.jpeg'
-import Biteboard from '../images/biteboard.jpeg'
-import PlanetWarrior from '../images/planetwarrior.png'
-import Golflive from '../images/golflive.jpeg'
-import Memeshare from '../images/memeshare.jpeg'
+import { Stack } from '@mui/material'
 
 const BLOG_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@maryann-navarrete'
 
@@ -35,13 +32,24 @@ const useStyles = makeStyles(() => ({
 	},
 	blogsGrid: {
 		display: 'flex',
-		justifyContent: 'space-between',
-		flexWrap: 'wrap',
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
-	blogBox: {
-		background: '#383838',
-		width: '22rem',
-		height: '20rem',
+	// blogBox: {
+	// 	background: '#1d1e22',
+	// 	opacity: '80%',
+	// 	zIndex: 1,
+	// },
+	blogCard: {
+		background: '#1d1e22',
+		padding: '1em',
+		zIndex: 99,
+	},
+	blogTitle: {
+		color: '#e6e6e6',
+	},
+	readMoreButton: {
+		color: '#e6e6e6',
 	},
 	projectImg: {
 		width: 320,
@@ -75,26 +83,51 @@ const Blog = () => {
 					</Box>
 				</Grid>
 				<Grid item md={12} lg={12}>
-					<Box className={classes.blogsGrid} sx={{ pl: 20, pr: 20 }}>
-						<Grid container spacing={6}>
+					<Box className={classes.blogsGrid} sx={{ ml: 40, mr: 40 }}>
+						<Grid
+							container
+							spacing={5}
+							direction="row"
+							sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}
+						>
 							{blogs.map((blog) => (
-								<Grid item md={6} lg={6} xs={12}>
-									<Card sx={{}}>
-										<CardMedia component="img" height="160" image={blog.thumbnail} alt={blog.title} />
+								<Grid item md={12} lg={12} xs={12} className={classes.blogBox}>
+									<Card sx={{}} className={classes.blogCard}>
+										<CardMedia component="img" height="180" image={blog.thumbnail} alt={blog.title} />
 
 										<CardContent>
 											<Typography
-												gutterBottom
-												variant="caption"
-												component="div"
-												color="black"
-												sx={{ lineHeight: '18px' }}
+												variant="h6"
+												className={classes.blogTitle}
+												sx={{ lineHeight: '18px', fontSize: '18px' }}
 											>
 												{blog.title}
 											</Typography>
 										</CardContent>
-										<CardActionArea>
-											<Button href={blog.link}>Read More</Button>
+										<CardActionArea sx={{ p: 2 }}>
+											<Grid
+												container
+												direction="row"
+												sx={{ display: 'flex', justifyContent: 'space-between', paddingLeft: 2 }}
+											>
+												<Grid item md={10} sx={{ ml: 4 }}>
+													<Stack direction="row" spacing={1} alignItems="right" sx={{ p: 1 }}>
+														{blog.categories.map((category) => (
+															<Chip label={`${category}`} style={{ backgroundColor: '#B59D4C', color: '#000' }} />
+														))}
+													</Stack>
+												</Grid>
+												<Grid item md={2}>
+													<Button
+														className={classes.readMoreButton}
+														href={blog.link}
+														target="_blank"
+														sx={{ pl: 4, color: '#e6e6e6' }}
+													>
+														Read More
+													</Button>
+												</Grid>
+											</Grid>
 										</CardActionArea>
 									</Card>
 								</Grid>

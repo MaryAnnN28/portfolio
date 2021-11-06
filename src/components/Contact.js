@@ -21,6 +21,9 @@ const useStyles = makeStyles(() => ({
 		padding: '4rem',
 		borderRadius: '50px 50px 0 50px',
 	},
+	form: {
+		backround: '#e6e6e6',
+	},
 	formLabel: {
 		color: '#686868',
 	},
@@ -37,7 +40,7 @@ const Contact = () => {
 				</Box>
 				<Grid container spacing={2} className={classes.formContainer}>
 					<Grid item md={6}>
-						<Grid container spacing={1}>
+						<Grid container spacing={1} className={classes.form}>
 							<Grid item md={12}>
 								<FormLabel>
 									<Typography className={classes.formLabel}>Name</Typography>

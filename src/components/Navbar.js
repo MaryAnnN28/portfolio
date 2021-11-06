@@ -5,19 +5,16 @@ import { AppBar, Toolbar, Box, Grid, Typography, IconButton, Link, makeStyles } 
 import { styled } from '@material-ui/styles'
 import { gsap } from 'gsap'
 import '../assets/Navbar.css'
+import Logo from '../images/logoM_black.png'
+import LogoM_white from '../images/LogoM_white.png'
 
 import { FaGithub, FaLinkedinIn, FaTwitter, FaMediumM } from 'react-icons/fa'
 
 const useStyles = makeStyles(() => ({
 	logo: {
-		fontFamily: 'Gruppo',
-		fontSize: '50pt',
-		color: '#e6e6e6',
 		'&:hover': {
 			color: '#B59D4C',
-			fontWeight: 100,
 		},
-		letterSpacing: '5px',
 	},
 	link: {
 		fontFamily: 'Montserrat',
@@ -105,9 +102,11 @@ const Navbar = (props) => {
 						alignItems: 'center',
 						flexGrow: 1,
 						ml: 10,
+						mt: 2,
 					}}
 				>
-					<Typography className={classes.logo}>MN</Typography>
+					{/* <Typography className={classes.logo}>MN</Typography> */}
+					<img src={LogoM_white} alt="logo" width="100" className={classes.logo} />
 				</Box>
 			</Grid>
 			<Grid item md={7}>
