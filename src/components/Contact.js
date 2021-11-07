@@ -1,31 +1,33 @@
 import React from 'react'
 import { TextField, FormLabel, Grid, Box, Button, Typography, makeStyles } from '@material-ui/core'
+import { AiOutlineMail } from 'react-icons/ai'
 
 const useStyles = makeStyles(() => ({
 	contactContainer: {
-		height: '100vh',
-		paddingTop: '2rem',
-		marginLeft: '15rem',
-		marginRight: '15rem',
+		height: '80vh',
+		display: 'flex',
+		justifyContent: 'center',
+		paddingBottom: '4rem',
+		paddingTop: '10rem',
 	},
 	contactTitle: {
-		color: '#B59D4C',
+		color: '#374B75',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
 		marginBottom: '2rem',
 	},
-	formContainer: {
-		background: '#383838',
-		opacity: '60%',
-		padding: '4rem',
-		borderRadius: '50px 50px 0 50px',
+	contactSubtitle: {
+		color: '#e6e6e6',
+		fontFamily: 'Montserrat',
+		fontSize: '20pt',
+		letterSpacing: '2px',
+		marginTop: '1rem',
+		marginBottom: '2rem',
+		alignText: 'center',
 	},
-	form: {
-		backround: '#e6e6e6',
-	},
-	formLabel: {
-		color: '#686868',
+	mailIcon: {
+		color: '#27345B',
 	},
 }))
 
@@ -35,46 +37,28 @@ const Contact = () => {
 	return (
 		<>
 			<Box className={classes.contactContainer}>
-				<Box>
-					<Typography className={classes.contactTitle}>Contact</Typography>
-				</Box>
-				<Grid container spacing={2} className={classes.formContainer}>
-					<Grid item md={6}>
-						<Grid container spacing={1} className={classes.form}>
-							<Grid item md={12}>
-								<FormLabel>
-									<Typography className={classes.formLabel}>Name</Typography>
-								</FormLabel>
-							</Grid>
-							<Grid item md={12}>
-								<TextField fullWidth type="text" name="name" variant="outlined"></TextField>
-							</Grid>
-							<Grid item md={12}>
-								<FormLabel>
-									<Typography className={classes.formLabel}>Email</Typography>
-								</FormLabel>
-							</Grid>
-							<Grid item md={12}>
-								<TextField fullWidth type="email" name="email" variant="outlined"></TextField>
-							</Grid>
-						</Grid>
+				<Grid container>
+					<Grid item md={12} lg={12}>
+						<Box sx={{ pl: 20 }}>
+							<Typography className={classes.contactTitle}>contact</Typography>
+						</Box>
 					</Grid>
-					<Grid item md={6}>
-						<Grid container spacing={1}>
-							<Grid item md={12}>
-								<FormLabel>
-									<Typography className={classes.formLabel}>Comment</Typography>
-								</FormLabel>
-							</Grid>
-							<Grid item md={12}>
-								<TextField fullWidth multiline rows={6} type="text" name="comment" variant="outlined"></TextField>
-							</Grid>
-							<Grid item md={12} direction="column" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-								<Button variant="contained" sx={{ px: 5 }}>
-									Submit
-								</Button>
-							</Grid>
-						</Grid>
+					<Grid item md={12} lg={12}>
+						<Box
+							direction="column"
+							sx={{
+								display: 'block',
+								justifyContent: 'center',
+								alignItems: 'center',
+								textAlign: 'center',
+							}}
+						>
+							<Typography className={classes.contactSubtitle}>Get in touch with Mary Ann</Typography>
+
+							<Typography className={classes.mailIcon}>
+								<AiOutlineMail fontSize="70px" />
+							</Typography>
+						</Box>
 					</Grid>
 				</Grid>
 			</Box>

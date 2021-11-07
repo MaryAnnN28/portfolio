@@ -1,8 +1,10 @@
-import React from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { Box, Container, Grid, Typography, makeStyles } from '@material-ui/core'
 import Picture from '../images/headshot.jpg'
 import { BsArrowRightShort } from 'react-icons/bs'
 import { HiOutlineArrowSmRight } from 'react-icons/hi'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const useStyles = makeStyles(() => ({
 	aboutContainer: {
@@ -25,22 +27,23 @@ const useStyles = makeStyles(() => ({
 		zIndex: 1,
 	},
 	box2: {
-		height: 500,
-		width: 500,
+		height: 450,
+		width: 450,
 		display: 'flex',
 		position: 'relative',
 		transform: 'rotate(52deg)',
 		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
 		opacity: '20%',
 		top: -60,
-		right: -400,
+		right: -460,
 		zIndex: 1,
 	},
 	aboutTitle: {
-		color: '#B59D4C',
+		color: '#374B75',
 		fontFamily: 'Montserrat',
 		// textTransform: 'uppercase',
-		fontSize: '18pt',
+		fontSize: '20pt',
+		fontWeight: '400',
 		letterSpacing: '2px',
 	},
 	aboutText: {
@@ -52,7 +55,7 @@ const useStyles = makeStyles(() => ({
 		lineHeight: '1.8',
 	},
 	techTitle: {
-		color: '#B59D4C',
+		color: '#374B75',
 		fontSize: '11pt',
 		letterSpacing: '2px',
 		fontFamily: 'Montserrat',
@@ -81,7 +84,7 @@ const useStyles = makeStyles(() => ({
 	headshotBox1: {
 		width: '300px',
 		height: '300px',
-		backgroundColor: '#1d1e22',
+		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
 		display: 'flex',
 		position: 'relative',
 		transform: 'rotate(-3deg)',
@@ -94,6 +97,19 @@ const useStyles = makeStyles(() => ({
 
 const About = () => {
 	const classes = useStyles()
+	const aboutTitle = useRef()
+	const aboutText = useRef()
+
+	gsap.registerPlugin(ScrollTrigger)
+
+	function scrollAnimation(target, vars) {
+		return gsap.from(target, { duration: 2, scrollTrigger: { target, start: 'top top', ease: 'power2.out' }, x: -100 })
+	}
+
+	useLayoutEffect(() => {
+		const animation1 = scrollAnimation(aboutTitle.current, { aboutTitle, y: -100 })
+		const animation2 = scrollAnimation(aboutText.current, { aboutText, x: -100, delay: 2 })
+	}, [])
 
 	return (
 		<Box className={classes.aboutContainer}>
@@ -101,24 +117,27 @@ const About = () => {
 				{/* LEFT COLUMN */}
 				<Grid item md={7}>
 					<Box sx={{ pl: 24, mb: 4, mt: 10 }}>
-						<Typography className={classes.aboutTitle}>about</Typography>
-					</Box>
-					<Box sx={{ pl: 24, pr: 1, mb: 3 }}>
-						<Typography className={classes.aboutText}>
-							I’m Mary Ann Navarrete, a Full-Stack Software Engineer and Project Manager based in the Washington, D.C.
-							area. I enjoy building things that solve problems, increase efficiency, and give back to the community. In
-							2020, I decided to pursue my dream of becoming a software engineer after years of using HTML & CSS to
-							spruce up personal projects.
+						<Typography className={classes.aboutTitle} ref={aboutTitle}>
+							about
 						</Typography>
 					</Box>
-					<Box sx={{ pl: 24, pr: 1, mb: 3 }}>
+					<Box sx={{ pl: 24, pr: 1, mb: 3 }} ref={aboutText}>
+						<Typography className={classes.aboutText}>
+							I’m Mary Ann Navarrete, a Full-Stack Software Engineer and Project Manager based in the Northern Virignia
+							area. I enjoy building things that solve problems, increase efficiency, and give back to the community. In
+							2020, I decided to pursue my dream of becoming a software engineer after years of personal website
+							projects & being inspired to do something about the lack of functionality & features in the hotel CRM
+							software I used for work.
+						</Typography>
+					</Box>
+					<Box sx={{ pl: 24, pr: 1, mb: 3 }} ref={aboutText}>
 						<Typography className={classes.aboutText}>
 							My background comes from 15 years of sales & marketing roles in the hospitality industry. Part
 							problem-solver who loves data-driven analysis, & part design enthusiast, I get to enjoy both worlds as a
 							full stack software developer.
 						</Typography>
 					</Box>
-					<Box sx={{ pl: 24, pr: 1, mb: 5 }}>
+					<Box sx={{ pl: 24, pr: 1, mb: 5 }} ref={aboutText}>
 						<Typography className={classes.aboutText}>
 							Outside of coding, I enjoy watching NBA games (go Sixers!), documentaries, reading, golf, learning,
 							cooking, traveling & snuggling with my shih tzu Toby.
@@ -130,48 +149,48 @@ const About = () => {
 							<Grid item md={4}>
 								<ul className={classes.techText}>
 									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> JavaScript
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> JavaScript
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> HTML
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> HTML
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> CSS
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> CSS
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> Ruby/Rails
-									</li>
-								</ul>
-							</Grid>
-							<Grid item md={4}>
-								<ul className={classes.techText}>
-									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> React
-									</li>
-									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> Strapi
-									</li>
-									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> MongoDB
-									</li>
-									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> SQL
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Ruby/Rails
 									</li>
 								</ul>
 							</Grid>
 							<Grid item md={4}>
 								<ul className={classes.techText}>
 									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> WordPress
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> React
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> Material-UI
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Strapi
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> Bootstrap
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> MongoDB
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#A69580" fontSize="16px" /> Adobe Photoshop
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> SQL
+									</li>
+								</ul>
+							</Grid>
+							<Grid item md={4}>
+								<ul className={classes.techText}>
+									<li>
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> WordPress
+									</li>
+									<li>
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Material-UI
+									</li>
+									<li>
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Bootstrap
+									</li>
+									<li>
+										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Adobe Photoshop
 									</li>
 								</ul>
 							</Grid>

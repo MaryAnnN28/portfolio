@@ -12,7 +12,9 @@ const useStyles = makeStyles(() => ({
 		width: '100%',
 		height: '150px',
 		opacity: '60%',
-		background: '#1d1e22',
+		position: 'relative',
+		bottom: 0,
+		background: '#19223B',
 	},
 	link: {
 		fontFamily: 'Montserrat',

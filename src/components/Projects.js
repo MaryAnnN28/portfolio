@@ -16,11 +16,33 @@ const useStyles = makeStyles(() => ({
 		justifyContent: 'center',
 		paddingBottom: '4rem',
 		marginBottom: '10rem',
-
-		// alignItems: 'center',
 	},
+	box1: {
+		height: 400,
+		width: 400,
+		display: 'flex',
+		position: 'relative',
+		transform: 'rotate(64deg)',
+		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
+		opacity: '60%',
+		top: -680,
+		left: -310,
+		zIndex: 1,
+	},
+	box2: {
+		height: 500,
+		width: 500,
+		display: 'flex',
+		position: 'relative',
+		transform: 'rotate(38deg)',
+		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
+		opacity: '20%',
+		top: -60,
+		right: -800,
+	},
+
 	projectsTitle: {
-		color: '#B59D4C',
+		color: '#374B75',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
@@ -30,15 +52,17 @@ const useStyles = makeStyles(() => ({
 		display: 'flex',
 		justifyContent: 'space-between',
 		flexWrap: 'wrap',
+		zIndex: 1,
 	},
 	projectImg: {
 		width: 320,
 		height: 210,
-		filter: 'grayscale(70%) sepia(70%) saturate(60%) hue-rotate(360deg) drop-shadow(.25rem .25rem 0.65rem #383838)',
+		filter: 'grayscale(60%) brightness(0.5) drop-shadow(.05rem .15rem 0.5rem #383838)',
 		'&:hover': {
 			filter: 'hue-rotate(0deg)',
 		},
 		borderRadius: '1%',
+		zIndex: 2,
 	},
 }))
 
@@ -70,6 +94,8 @@ const Projects = () => {
 						<img src={Memeshare} alt="headshot" className={classes.projectImg} />
 					</Box>
 				</Grid>
+				<div className={classes.box1}></div>
+				<div className={classes.box2}></div>
 			</Grid>
 		</Box>
 	)

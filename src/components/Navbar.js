@@ -5,8 +5,10 @@ import { AppBar, Toolbar, Box, Grid, Typography, IconButton, Link, makeStyles } 
 import { styled } from '@material-ui/styles'
 import { gsap } from 'gsap'
 import '../assets/Navbar.css'
-import Logo from '../images/logoM_black.png'
-import LogoM_white from '../images/LogoM_white.png'
+import MNLogo from '../images/MN_logo.png'
+import MNLogoSerif from '../images/MN_logo_serif.png'
+import MNLogo2 from '../images/MN_logo2.png'
+import MNLogo2Serif from '../images/MN_logo2_serif.png'
 
 import { FaGithub, FaLinkedinIn, FaTwitter, FaMediumM } from 'react-icons/fa'
 
@@ -22,18 +24,17 @@ const useStyles = makeStyles(() => ({
 		fontWeight: 300,
 		color: '#e6e6e6',
 		'&:hover': {
-			color: '#A38D45',
-			// textShadow: '-2px -2px #857338',
+			color: '#202943',
 			fontWeight: 500,
 		},
-		letterSpacing: '1.5pt',
+		letterSpacing: '3px',
 	},
 	icons: {
 		marginRight: '1.5em',
 		zIndex: 1,
-		color: '#e6e6e6',
+		color: '#202943',
 		'&:hover': {
-			color: '#A38D45',
+			color: '#101011',
 		},
 	},
 }))
@@ -46,45 +47,65 @@ const Navbar = (props) => {
 	const link2 = useRef()
 	const link3 = useRef()
 	const link4 = useRef()
-	const link5 = useRef()
-
-	const onEnter = ({ currentTarget }) => {
-		gsap.to(currentTarget, { color: '#f73788' })
-	}
-
-	const onLeave = ({ currentTarget }) => {
-		gsap.to(currentTarget, { color: '#e5e3e3' })
-	}
+	const icon1 = useRef()
+	const icon2 = useRef()
+	const icon3 = useRef()
+	const icon4 = useRef()
+	const logo = useRef()
 
 	function fadeIn(target, vars) {
 		return gsap.from(target, { opacity: 0, ...vars })
 	}
 
 	useLayoutEffect(() => {
-		const animation = fadeIn(link1.current, { y: -30, duration: 0.75, ease: 'back.out(2)' })
-		const animation1 = fadeIn(link2.current, {
+		const animation1 = fadeIn(link1.current, { y: -30, duration: 1, ease: 'back.out(3)', delay: 12.9 })
+		const animation2 = fadeIn(link2.current, {
 			y: -30,
-			duration: 0.75,
-			ease: 'back.out(2)',
-			delay: 0.2,
+			duration: 1,
+			ease: 'back.out(3)',
+			delay: 13,
 		})
-		const animation2 = fadeIn(link3.current, {
+		const animation3 = fadeIn(link3.current, {
 			y: -30,
-			duration: 0.75,
-			ease: 'back.out(2)',
-			delay: 0.4,
+			duration: 1,
+			ease: 'back.out(3)',
+			delay: 13.1,
 		})
-		const animation3 = fadeIn(link4.current, {
+		const animation4 = fadeIn(link4.current, {
 			y: -30,
-			duration: 0.75,
-			ease: 'back.out(2)',
-			delay: 0.6,
+			duration: 1,
+			ease: 'back.out(3)',
+			delay: 13.2,
 		})
-		const animation4 = fadeIn(link5.current, {
-			y: -30,
-			duration: 0.75,
-			ease: 'back.out(2)',
-			delay: 0.8,
+		const animation5 = fadeIn(icon1.current, {
+			x: 30,
+			duration: 1,
+			ease: 'back.out(3)',
+			delay: 13.8,
+		})
+		const animation6 = fadeIn(icon2.current, {
+			x: 30,
+			duration: 1,
+			ease: 'back.out(3)',
+			delay: 13.9,
+		})
+		const animation7 = fadeIn(icon3.current, {
+			x: 30,
+			duration: 1,
+			ease: 'back.out(3)',
+			delay: 14,
+		})
+		const animation8 = fadeIn(icon4.current, {
+			x: 30,
+			duration: 1,
+			ease: 'back.out(3)',
+			delay: 14.1,
+		})
+		const animation9 = fadeIn(logo.current, {
+			y: -20,
+			duration: 5,
+			ease: 'back.out(3)',
+			delay: 14.8,
 		})
 	}, [])
 
@@ -101,12 +122,12 @@ const Navbar = (props) => {
 					sx={{
 						alignItems: 'center',
 						flexGrow: 1,
-						ml: 10,
-						mt: 2,
+						ml: 8,
+						mt: 3,
 					}}
 				>
 					{/* <Typography className={classes.logo}>MN</Typography> */}
-					<img src={LogoM_white} alt="logo" width="100" className={classes.logo} />
+					<img src={MNLogo2} alt="logo" width="120" className={classes.logo} ref={logo} />
 				</Box>
 			</Grid>
 			<Grid item md={7}>
@@ -129,8 +150,6 @@ const Navbar = (props) => {
 						sx={{
 							px: 0.5,
 						}}
-						onMouseEnter={onEnter}
-						onMouseLeave={onLeave}
 					>
 						<Typography className={classes.link} ref={link1}>
 							About
@@ -145,7 +164,7 @@ const Navbar = (props) => {
 							px: 1,
 						}}
 					>
-						<Typography className={classes.link} ref={link3}>
+						<Typography className={classes.link} ref={link2}>
 							Projects
 						</Typography>
 					</Link>
@@ -157,7 +176,7 @@ const Navbar = (props) => {
 							px: 0.5,
 						}}
 					>
-						<Typography className={classes.link} ref={link4}>
+						<Typography className={classes.link} ref={link3}>
 							Blog
 						</Typography>
 					</Link>
@@ -169,7 +188,7 @@ const Navbar = (props) => {
 							px: 0.5,
 						}}
 					>
-						<Typography className={classes.link} ref={link5}>
+						<Typography className={classes.link} ref={link4}>
 							Contact
 						</Typography>
 					</Link>
@@ -183,31 +202,33 @@ const Navbar = (props) => {
 						ml: 10,
 						mr: 30,
 						mt: 5.5,
-						color: '#efefef',
 						zIndex: 22,
 					}}
 				>
 					<Link
 						className={classes.icons}
-						href="https://github.com/MaryAnnN28"
-						target="_blank"
-						sx={{ color: '#efefef' }}
-					>
-						<FaGithub fontSize="22px" />
-					</Link>
-					<Link
-						className={classes.icons}
 						href="https://www.linkedin.com/in/maryannnavarrete/"
 						target="_blank"
-						sx={{ color: '#efefef' }}
+						sx={{ color: '#d6d6d6' }}
+						ref={icon1}
 					>
 						<FaLinkedinIn fontSize="22px" />
 					</Link>
 					<Link
 						className={classes.icons}
+						href="https://github.com/MaryAnnN28"
+						target="_blank"
+						sx={{ color: '#d6d6d6' }}
+						ref={icon2}
+					>
+						<FaGithub fontSize="22px" />
+					</Link>
+					<Link
+						className={classes.icons}
 						href="https://maryann-navarrete.medium.com/"
 						target="_blank"
-						sx={{ color: '#efefef' }}
+						sx={{ color: '#d6d6d6' }}
+						ref={icon3}
 					>
 						<FaMediumM fontSize="22px" />
 					</Link>
@@ -215,7 +236,8 @@ const Navbar = (props) => {
 						className={classes.icons}
 						href="https://www.twitter.com/maryannn28"
 						target="_blank"
-						sx={{ color: '#efefef' }}
+						sx={{ color: '#d6d6d6' }}
+						ref={icon4}
 					>
 						<FaTwitter fontSize="22px" />
 					</Link>
