@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
 		zIndex: 1,
 	},
 	aboutTitle: {
-		color: 'rgba(25, 41, 103)',
+		color: 'rgba(113, 110, 87)',
 		fontFamily: 'Montserrat',
 		// textTransform: 'uppercase',
 		fontSize: '20pt',
@@ -53,7 +53,7 @@ const useStyles = makeStyles(() => ({
 		lineHeight: '1.8',
 	},
 	techTitle: {
-		color: '#374B75',
+		color: 'rgba(113, 110, 87)',
 		fontSize: '11pt',
 		letterSpacing: '2px',
 		fontFamily: 'Montserrat',

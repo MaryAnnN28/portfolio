@@ -12,11 +12,9 @@ import Memeshare from '../images/memeshare.jpeg'
 
 const useStyles = makeStyles(() => ({
 	projectsContainer: {
-		// height: '100vh',
 		display: 'flex',
 		justifyContent: 'center',
-		paddingBottom: '4rem',
-		marginBottom: '10rem',
+		marginBottom: '1rem',
 	},
 	box1: {
 		height: 400,
@@ -26,9 +24,9 @@ const useStyles = makeStyles(() => ({
 		transform: 'rotate(64deg)',
 		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
 		opacity: '60%',
-		top: -680,
+		top: -650,
 		left: -310,
-		zIndex: 1,
+		zIndex: 0,
 	},
 	box2: {
 		height: 500,
@@ -43,11 +41,12 @@ const useStyles = makeStyles(() => ({
 	},
 
 	projectsTitle: {
-		color: 'rgba(25, 41, 103)',
+		color: 'rgba(113, 110, 87)',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
 		marginBottom: '4rem',
+		zIndex: 3,
 	},
 	projectsGrid: {
 		display: 'flex',

@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
 		fontFamily: 'Montserrat',
 		fontWeight: 500,
 		marginTop: -35,
-		marginBottom: 20,
+		marginBottom: 12,
 		lineHeight: 1,
 	},
 	header2: {
@@ -37,7 +37,6 @@ const useStyles = makeStyles(() => ({
 	},
 	mainHeader2: {
 		fontSize: '52pt',
-		// color: '#CCB056',
 		color: '#e6e6e6',
 		opacity: '80%',
 		textTransform: 'uppercase',
@@ -52,7 +51,7 @@ const useStyles = makeStyles(() => ({
 	andSymbol: {
 		fontFamily: 'Caramel',
 		fontSize: '122pt',
-		color: 'rgba(25, 41, 103)',
+		color: 'rgba(113, 110, 87)',
 		transform: 'rotate(-10deg)',
 		fontWeight: 200,
 		marginTop: -90,
@@ -112,7 +111,9 @@ const useStyles = makeStyles(() => ({
 		top: -80,
 		right: -330,
 		opacity: '50%',
-		background: 'linear-gradient(30deg, rgba(25,41,103) 2%, rgba(12, 22, 61) 91%)',
+		background: ' rgba(133,129,104) ',
+		// background: ' rgba(25,39,92) ',
+		// background: 'linear-gradient(30deg, rgba(25,41,103) 2%, rgba(12, 22, 61) 91%)',
 		// background: 'linear-gradient(38deg, rgba(181,157,76,1) 0%, rgba(116,103,62,1) 64%)',
 	},
 

@@ -18,13 +18,12 @@ const BLOG_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.co
 
 const useStyles = makeStyles(() => ({
 	blogContainer: {
-		// height: '280vh',
 		display: 'flex',
 		justifyContent: 'center',
 		paddingBottom: '6rem',
 	},
 	projectsTitle: {
-		color: 'rgba(25, 41, 103)',
+		color: 'rgba(113, 110, 87)',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
@@ -45,6 +44,7 @@ const useStyles = makeStyles(() => ({
 	},
 	blogTitle: {
 		color: '#e6e6e6',
+		zIndex: 6,
 	},
 	readMoreButton: {
 		color: '#e6e6e6',
@@ -66,9 +66,9 @@ const useStyles = makeStyles(() => ({
 		transform: 'rotate(28deg)',
 		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
 		opacity: '50%',
-		top: 2980,
+		top: 2280,
 		left: -310,
-		zIndex: 1,
+		zIndex: 0,
 	},
 	box2: {
 		height: 500,
@@ -80,7 +80,7 @@ const useStyles = makeStyles(() => ({
 		opacity: '20%',
 		top: 3600,
 		right: -400,
-		zIndex: 1,
+		zIndex: 0,
 	},
 	box3: {
 		height: 475,
@@ -90,9 +90,9 @@ const useStyles = makeStyles(() => ({
 		transform: 'rotate(20deg)',
 		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
 		opacity: '50%',
-		top: 4080,
+		top: 3880,
 		left: -310,
-		zIndex: 1,
+		zIndex: 0,
 	},
 	box4: {
 		height: 600,
@@ -104,7 +104,7 @@ const useStyles = makeStyles(() => ({
 		opacity: '20%',
 		top: 4900,
 		right: -400,
-		zIndex: 1,
+		zIndex: 0,
 	},
 	box5: {
 		height: 400,
