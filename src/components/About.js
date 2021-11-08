@@ -1,10 +1,8 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Box, Container, Grid, Typography, makeStyles } from '@material-ui/core'
 import Picture from '../images/headshot.jpg'
-import { BsArrowRightShort } from 'react-icons/bs'
+
 import { HiOutlineArrowSmRight } from 'react-icons/hi'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const useStyles = makeStyles(() => ({
 	aboutContainer: {
@@ -39,7 +37,7 @@ const useStyles = makeStyles(() => ({
 		zIndex: 1,
 	},
 	aboutTitle: {
-		color: '#374B75',
+		color: 'rgba(25, 41, 103)',
 		fontFamily: 'Montserrat',
 		// textTransform: 'uppercase',
 		fontSize: '20pt',
@@ -97,31 +95,16 @@ const useStyles = makeStyles(() => ({
 
 const About = () => {
 	const classes = useStyles()
-	const aboutTitle = useRef()
-	const aboutText = useRef()
-
-	gsap.registerPlugin(ScrollTrigger)
-
-	function scrollAnimation(target, vars) {
-		return gsap.from(target, { duration: 2, scrollTrigger: { target, start: 'top top', ease: 'power2.out' }, x: -100 })
-	}
-
-	useLayoutEffect(() => {
-		const animation1 = scrollAnimation(aboutTitle.current, { aboutTitle, y: -100 })
-		const animation2 = scrollAnimation(aboutText.current, { aboutText, x: -100, delay: 2 })
-	}, [])
 
 	return (
 		<Box className={classes.aboutContainer}>
 			<Grid container>
 				{/* LEFT COLUMN */}
-				<Grid item md={7}>
+				<Grid item md={7} className={classes.aboutLeft}>
 					<Box sx={{ pl: 24, mb: 4, mt: 10 }}>
-						<Typography className={classes.aboutTitle} ref={aboutTitle}>
-							about
-						</Typography>
+						<Typography className={classes.aboutTitle}>about</Typography>
 					</Box>
-					<Box sx={{ pl: 24, pr: 1, mb: 3 }} ref={aboutText}>
+					<Box sx={{ pl: 24, pr: 1, mb: 3 }}>
 						<Typography className={classes.aboutText}>
 							I’m Mary Ann Navarrete, a Full-Stack Software Engineer and Project Manager based in the Northern Virignia
 							area. I enjoy building things that solve problems, increase efficiency, and give back to the community. In
@@ -130,14 +113,14 @@ const About = () => {
 							software I used for work.
 						</Typography>
 					</Box>
-					<Box sx={{ pl: 24, pr: 1, mb: 3 }} ref={aboutText}>
+					<Box sx={{ pl: 24, pr: 1, mb: 3 }}>
 						<Typography className={classes.aboutText}>
 							My background comes from 15 years of sales & marketing roles in the hospitality industry. Part
 							problem-solver who loves data-driven analysis, & part design enthusiast, I get to enjoy both worlds as a
 							full stack software developer.
 						</Typography>
 					</Box>
-					<Box sx={{ pl: 24, pr: 1, mb: 5 }} ref={aboutText}>
+					<Box sx={{ pl: 24, pr: 1, mb: 5 }}>
 						<Typography className={classes.aboutText}>
 							Outside of coding, I enjoy watching NBA games (go Sixers!), documentaries, reading, golf, learning,
 							cooking, traveling & snuggling with my shih tzu Toby.
@@ -201,7 +184,13 @@ const About = () => {
 
 				{/* RIGHT COLUMN */}
 				<Grid item md={5}>
-					<Box className={classes.rightContainer} sx={{ mt: 20, ml: -6 }}>
+					<Box
+						className={classes.rightContainer}
+						sx={{ mt: 20, ml: -6 }}
+						data-aos="fade-down"
+						data-aos-delay="500"
+						data-aos-duration="4000"
+					>
 						<img src={Picture} alt="headshot" className={classes.headshot} />
 						<div className={classes.headshotBox1}></div>
 					</Box>

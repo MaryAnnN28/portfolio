@@ -11,10 +11,10 @@ const useStyles = makeStyles(() => ({
 	footerContainer: {
 		width: '100%',
 		height: '150px',
-		opacity: '60%',
+		opacity: '40%',
 		position: 'relative',
 		bottom: 0,
-		background: '#19223B',
+		background: 'rgba(25, 41, 103)',
 	},
 	link: {
 		fontFamily: 'Montserrat',

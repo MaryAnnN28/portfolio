@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { TextField, FormLabel, Grid, Box, Button, Typography, makeStyles } from '@material-ui/core'
 import { AiOutlineMail } from 'react-icons/ai'
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
 		paddingTop: '10rem',
 	},
 	contactTitle: {
-		color: '#374B75',
+		color: 'rgba(25, 41, 103)',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
@@ -53,7 +53,7 @@ const Contact = () => {
 								textAlign: 'center',
 							}}
 						>
-							<Typography className={classes.contactSubtitle}>Get in touch with Mary Ann</Typography>
+							<Typography className={classes.contactSubtitle}>Get in touch.</Typography>
 
 							<Typography className={classes.mailIcon}>
 								<AiOutlineMail fontSize="70px" />

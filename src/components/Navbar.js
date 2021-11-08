@@ -24,17 +24,18 @@ const useStyles = makeStyles(() => ({
 		fontWeight: 300,
 		color: '#e6e6e6',
 		'&:hover': {
-			color: '#202943',
-			fontWeight: 500,
+			color: 'rgba(25, 41, 103)',
+			fontWeight: 600,
 		},
 		letterSpacing: '3px',
 	},
 	icons: {
 		marginRight: '1.5em',
 		zIndex: 1,
-		color: '#202943',
+		color: 'rgba(25, 41, 103)',
 		'&:hover': {
-			color: '#101011',
+			color: '#8A9BB1',
+			paddingBottom: 3,
 		},
 	},
 }))
@@ -58,54 +59,54 @@ const Navbar = (props) => {
 	}
 
 	useLayoutEffect(() => {
-		const animation1 = fadeIn(link1.current, { y: -30, duration: 1, ease: 'back.out(3)', delay: 12.9 })
+		const animation1 = fadeIn(link1.current, { y: -30, duration: 1, ease: 'back.out(3)', delay: 5 })
 		const animation2 = fadeIn(link2.current, {
 			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 13,
+			delay: 5.1,
 		})
 		const animation3 = fadeIn(link3.current, {
 			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 13.1,
+			delay: 5.2,
 		})
 		const animation4 = fadeIn(link4.current, {
 			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 13.2,
+			delay: 5.3,
 		})
-		const animation5 = fadeIn(icon1.current, {
-			x: 30,
-			duration: 1,
-			ease: 'back.out(3)',
-			delay: 13.8,
-		})
-		const animation6 = fadeIn(icon2.current, {
-			x: 30,
-			duration: 1,
-			ease: 'back.out(3)',
-			delay: 13.9,
-		})
-		const animation7 = fadeIn(icon3.current, {
-			x: 30,
-			duration: 1,
-			ease: 'back.out(3)',
-			delay: 14,
-		})
-		const animation8 = fadeIn(icon4.current, {
-			x: 30,
-			duration: 1,
-			ease: 'back.out(3)',
-			delay: 14.1,
-		})
+		// const animation5 = fadeIn(icon1.current, {
+		// 	x: 30,
+		// 	duration: 1,
+		// 	ease: 'back.out(3)',
+		// 	delay: 7,
+		// })
+		// const animation6 = fadeIn(icon2.current, {
+		// 	x: 30,
+		// 	duration: 1,
+		// 	ease: 'back.out(3)',
+		// 	delay: 7.1,
+		// })
+		// const animation7 = fadeIn(icon3.current, {
+		// 	x: 30,
+		// 	duration: 1,
+		// 	ease: 'back.out(3)',
+		// 	delay: 7.2,
+		// })
+		// const animation8 = fadeIn(icon4.current, {
+		// 	x: 30,
+		// 	duration: 1,
+		// 	ease: 'back.out(3)',
+		// 	delay: 7.3,
+		// })
 		const animation9 = fadeIn(logo.current, {
 			y: -20,
 			duration: 5,
 			ease: 'back.out(3)',
-			delay: 14.8,
+			delay: 9,
 		})
 	}, [])
 

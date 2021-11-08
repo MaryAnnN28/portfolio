@@ -22,14 +22,13 @@ const useStyles = makeStyles(() => ({
 	},
 	mainHeader: {
 		fontSize: '52pt',
-		// color: '#CCB056',
 		color: '#e6e6e6',
 		opacity: '80%',
 		textTransform: 'uppercase',
 		letterSpacing: '12px',
 		fontFamily: 'Montserrat',
 		fontWeight: 500,
-		marginTop: -45,
+		marginTop: -35,
 		marginBottom: 20,
 		lineHeight: 1,
 	},
@@ -53,7 +52,8 @@ const useStyles = makeStyles(() => ({
 	andSymbol: {
 		fontFamily: 'Caramel',
 		fontSize: '122pt',
-		color: '#232D4A',
+		// color: '#8294AB',
+		color: 'rgba(25, 41, 103)',
 		transform: 'rotate(-10deg)',
 		fontWeight: 200,
 		marginTop: -90,
@@ -85,7 +85,7 @@ const useStyles = makeStyles(() => ({
 		position: 'absolute',
 		transform: 'rotate(-29deg)',
 		backgroundColor: '#101011',
-		opacity: '50%',
+		opacity: '40%',
 		top: 30,
 		left: -330,
 		// zIndex: 4,
@@ -101,7 +101,7 @@ const useStyles = makeStyles(() => ({
 		left: -250,
 		opacity: '50%',
 		// backgroundColor: '#B59D4C',
-		background: 'linear-gradient(-60deg, rgba(39,52,91) 0%, rgba(32, 41, 67) 64%)',
+		background: 'linear-gradient(-60deg, rgba(39,52,91) 0%, rgba(25, 41, 103) 64%)',
 	},
 
 	box2: {
@@ -113,7 +113,7 @@ const useStyles = makeStyles(() => ({
 		top: -80,
 		right: -330,
 		opacity: '50%',
-		background: 'linear-gradient(30deg, rgba(39,52,91) 0%, rgba(32, 41, 67) 64%)',
+		background: 'linear-gradient(30deg, rgba(25,41,103) 2%, rgba(12, 22, 61) 91%)',
 		// background: 'linear-gradient(38deg, rgba(181,157,76,1) 0%, rgba(116,103,62,1) 64%)',
 	},
 
@@ -125,7 +125,7 @@ const useStyles = makeStyles(() => ({
 		transform: 'rotate(68deg)',
 		top: 50,
 		right: -425,
-		opacity: '50%',
+		opacity: '40%',
 		backgroundColor: '#101011',
 	},
 }))
@@ -151,9 +151,9 @@ const Header = () => {
 
 	useLayoutEffect(() => {
 		const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 4, delay: 5 })
-		const animation1 = fadeIn(and.current, { x: -50, ease: 'back.out(3)', duration: 4, delay: 6.7 })
+		const animation1 = fadeIn(and.current, { y: -50, ease: 'back.out(3)', duration: 4, delay: 6.7 })
 		const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 4, delay: 8.7 })
-		const animation3 = fadeIn(enhanced.current, { y: 100, ease: 'back.out(2)', duration: 4, delay: 10.6 })
+		const animation3 = fadeIn(enhanced.current, { y: 100, ease: 'back.out(1)', duration: 4, delay: 10.1 })
 		const animation4 = fadeIn(box1.current, { rotation: 30, x: 50, duration: 4, delay: 0.5 })
 		const animation5 = fadeIn(box1a.current, { rotation: -30, x: 50, duration: 4, delay: 2.5 })
 		const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4, delay: 0.5 })

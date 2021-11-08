@@ -5,7 +5,7 @@ import './assets/index.css'
 
 const useStyles = makeStyles(() => ({
 	app: {
-		background: 'radial-gradient(circle, rgba(10,10,10,1) 11%, rgba(0,0,0,1) 89%)',
+		background: 'radial-gradient(circle, rgba(6,6,6,1) 12%, rgba(0,0,0,1) 88%)',
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
 		backgroundAttachment: 'fixed',

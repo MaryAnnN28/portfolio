@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
 		paddingBottom: '6rem',
 	},
 	projectsTitle: {
-		color: '#374B75',
+		color: 'rgba(25, 41, 103)',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
