@@ -52,7 +52,6 @@ const useStyles = makeStyles(() => ({
 	andSymbol: {
 		fontFamily: 'Caramel',
 		fontSize: '122pt',
-		// color: '#8294AB',
 		color: 'rgba(25, 41, 103)',
 		transform: 'rotate(-10deg)',
 		fontWeight: 200,
@@ -151,7 +150,7 @@ const Header = () => {
 
 	useLayoutEffect(() => {
 		const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 4, delay: 5 })
-		const animation1 = fadeIn(and.current, { y: -50, ease: 'back.out(3)', duration: 4, delay: 6.7 })
+		const animation1 = fadeIn(and.current, { y: 50, ease: 'back.out(3)', duration: 4, delay: 6.7 })
 		const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 4, delay: 8.7 })
 		const animation3 = fadeIn(enhanced.current, { y: 100, ease: 'back.out(1)', duration: 4, delay: 10.1 })
 		const animation4 = fadeIn(box1.current, { rotation: 30, x: 50, duration: 4, delay: 0.5 })

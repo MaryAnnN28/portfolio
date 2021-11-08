@@ -83,14 +83,14 @@ const useStyles = makeStyles(() => ({
 		height: '300px',
 		display: 'block',
 		opacity: '64%',
-		background: 'rgba(32, 41, 67)',
+		background: 'rgba(14, 14, 16)',
 		zIndex: 1,
 		padding: 20,
 		marginLeft: -20,
 	},
 	projectSubtitle: {
 		textTransform: 'uppercase',
-		color: '#8A9BB1',
+		color: '#768AB8',
 		fontWeight: '600',
 		fontSize: '10pt',
 		letterSpacing: '3px',
@@ -158,10 +158,10 @@ const Projects = () => {
 							</div>
 							<Grid container className={classes.projectTech}>
 								<Stack direction="row" spacing={1} alignItems="right" sx={{ p: 1 }}>
-									<Chip label="React" style={{ backgroundColor: '#8A9BB1', color: '#101010', mr: 2 }} />
-									<Chip label="Material UI" style={{ backgroundColor: '#8A9BB1', color: '#101010' }} />
-									<Chip label="MongoDB" style={{ backgroundColor: '#8A9BB1', color: '#101010' }} />
-									<Chip label="Strapi" style={{ backgroundColor: '#8A9BB1', color: '#101010' }} />
+									<Chip label="React" style={{ backgroundColor: '#192967', color: '#efefef', mr: 2 }} />
+									<Chip label="Material UI" style={{ backgroundColor: '#192967', color: '#efefef' }} />
+									<Chip label="MongoDB" style={{ backgroundColor: '#192967', color: '#efefef' }} />
+									<Chip label="Strapi" style={{ backgroundColor: '#192967', color: '#efefef' }} />
 								</Stack>
 							</Grid>
 						</div>
@@ -192,10 +192,10 @@ const Projects = () => {
 							</div>
 							<Grid container className={classes.projectTech}>
 								<Stack direction="row" spacing={1} alignItems="right" sx={{ p: 1 }}>
-									<Chip label="React" style={{ backgroundColor: '#8A9BB1', color: '#101010', mr: 2 }} />
-									<Chip label="Material UI" style={{ backgroundColor: '#8A9BB1', color: '#101010' }} />
-									<Chip label="MongoDB" style={{ backgroundColor: '#8A9BB1', color: '#101010' }} />
-									<Chip label="Strapi" style={{ backgroundColor: '#8A9BB1', color: '#101010' }} />
+									<Chip label="React" style={{ backgroundColor: '#192967', color: '#efefef', mr: 2 }} />
+									<Chip label="Material UI" style={{ backgroundColor: '#192967', color: '#efefef' }} />
+									<Chip label="MongoDB" style={{ backgroundColor: '#192967', color: '#efefef' }} />
+									<Chip label="Strapi" style={{ backgroundColor: '#192967', color: '#efefef' }} />
 								</Stack>
 							</Grid>
 						</div>

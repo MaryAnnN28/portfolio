@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
 		marginBottom: '2rem',
 	},
 	contactSubtitle: {
-		color: '#e6e6e6',
+		color: '#e9e9e9',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
 		alignText: 'center',
 	},
 	mailIcon: {
-		color: '#27345B',
+		color: 'rgba(25, 41, 103)',
 	},
 }))
 
