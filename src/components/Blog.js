@@ -144,6 +144,8 @@ const Blog = () => {
 			})
 	})
 
+	if (!blogs) return null
+
 	return (
 		<Box className={classes.blogContainer}>
 			<Grid container>

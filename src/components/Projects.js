@@ -1,5 +1,15 @@
-import { useEffect } from 'react'
-import { Box, Grid, Chip, Typography, makeStyles } from '@material-ui/core'
+import { useEffect, useState, useCallback } from 'react'
+import {
+	Box,
+	Grid,
+	Chip,
+	Typography,
+	makeStyles,
+	Dialog,
+	DialogActions,
+	DialogContent,
+	DialogContentText,
+} from '@material-ui/core'
 import { Stack } from '@mui/material'
 import PchFrontendSite from '../images/pch_frontendsite.png'
 import PchDashboardListings from '../images/pch_dashboardlistings.png'
@@ -9,12 +19,17 @@ import Biteboard from '../images/biteboard.jpeg'
 import PlanetWarrior from '../images/planetwarrior.png'
 import Golflive from '../images/golflive.jpeg'
 import Memeshare from '../images/memeshare.jpeg'
+import useMounted from '../hooks/useMounted'
+
+import { projectsApi } from '../api/projectsApi'
 
 const useStyles = makeStyles(() => ({
 	projectsContainer: {
 		display: 'flex',
 		justifyContent: 'center',
 		marginBottom: '1rem',
+		marginLeft: '10rem',
+		marginRight: '10rem',
 	},
 	box1: {
 		height: 400,
@@ -58,23 +73,28 @@ const useStyles = makeStyles(() => ({
 	projectImg: {
 		width: 320,
 		height: 210,
-		filter: 'grayscale(60%) brightness(0.55) drop-shadow(.05rem .15rem 0.5rem #383838)',
+		filter: 'grayscale(60%) brightness(0.6) drop-shadow(.05rem .15rem 0.5rem #383838)',
 		'&:hover': {
 			filter: 'hue-rotate(0deg)',
 		},
 		borderRadius: '1%',
 		zIndex: 2,
 	},
+
+	projectImgModal: {
+		width: 510,
+		height: 410,
+		borderRadius: '1%',
+	},
 	feauturedProjectImg: {
 		width: 530,
 		height: 330,
-		filter: 'grayscale(25%) brightness(0.6)',
+		filter: 'grayscale(25%) brightness(0.65)',
 		'&:hover': {
 			filter: 'hue-rotate(0deg)',
 		},
 		display: 'flex',
 		zIndex: 999,
-		marginLeft: -50,
 		marginTop: 50,
 	},
 	projectDescBox: {
@@ -125,12 +145,41 @@ const useStyles = makeStyles(() => ({
 
 const Projects = () => {
 	const classes = useStyles()
+	const mounted = useMounted()
+	const [projects, setProjects] = useState([])
+	const [isOpen, setIsOpen] = useState(false)
+
+	const getProjectObjs = useCallback(async () => {
+		try {
+			const data = await projectsApi.getProjects()
+
+			if (mounted.current) {
+				setProjects(data)
+			}
+		} catch (err) {
+			console.log(err)
+		}
+	}, [mounted])
+
+	const handleProjectClick = (values) => {
+		setIsOpen(true)
+	}
+
+	const handleClose = () => {
+		setIsOpen(false)
+	}
+
+	useEffect(() => {
+		getProjectObjs()
+	}, [getProjectObjs])
+
+	console.log(projects)
 
 	return (
 		<Box className={classes.projectsContainer}>
 			<Grid container>
 				<Grid item md={12} lg={12}>
-					<Box sx={{ pl: 20 }}>
+					<Box>
 						<Typography className={classes.projectsTitle}>projects</Typography>
 					</Box>
 				</Grid>
@@ -203,24 +252,19 @@ const Projects = () => {
 						<img src={PchDashboardListings} alt="PCH Dashboard" className={classes.feauturedProjectImg} />
 					</div>
 				</Box>
-				<Grid container>
-					<Grid item md={12} lg={12} sx={{ mt: 4 }}>
-						<Box className={classes.projectsGrid} sx={{ pl: 20, pr: 20 }}>
-							<img src={PchFrontendSite} alt="PCH Real Estate & Mortgage" className={classes.projectImg} />
-							<img src={PchDashboardListings} alt="PCH Dashboard" className={classes.projectImg} />
-							<img src={NavCRM} alt="CRM Dashboard" className={classes.projectImg} />
-						</Box>
-						<Box className={classes.projectsGrid} sx={{ pl: 20, pr: 20, mt: 8 }}>
-							<img src={NBAstatsapp} alt="NBA Stats App" className={classes.projectImg} />
-							<img src={PlanetWarrior} alt="Planet Warrior App" className={classes.projectImg} />
-							<img src={Biteboard} alt="Biteboard Recipe Sharing App" className={classes.projectImg} />
-						</Box>
-						<Box className={classes.projectsGrid} sx={{ pl: 20, pr: 20, mt: 8 }}>
-							<img src={Biteboard} alt="headshot" className={classes.projectImg} />
-							<img src={Golflive} alt="headshot" className={classes.projectImg} />
-							<img src={Memeshare} alt="headshot" className={classes.projectImg} />
-						</Box>
-					</Grid>
+				<Grid container spacing={8} sx={{ ml: 15, mr: 15 }}>
+					{projects.map((project) => (
+						<>
+							<Grid item md={4} lg={4} sx={{ mt: 4, mb: 4 }} onClick={() => handleProjectClick(project.id)}>
+								<img src={project.image} alt={project.name} className={classes.projectImg} />
+							</Grid>
+							<Dialog open={isOpen} onClose={() => setIsOpen(false)} maxWidth={'md'}>
+								<DialogContent>
+									<img src={project.image} alt={project.name} className={classes.projectImgModal} />
+								</DialogContent>
+							</Dialog>
+						</>
+					))}
 				</Grid>
 				<div className={classes.box1}></div>
 				<div className={classes.box2}></div>
@@ -230,3 +274,21 @@ const Projects = () => {
 }
 
 export default Projects
+
+{
+	/* <Box className={classes.projectsGrid} sx={{ pl: 20, pr: 20 }}>
+	<img src={PchFrontendSite} alt="PCH Real Estate & Mortgage" className={classes.projectImg} />
+	<img src={PchDashboardListings} alt="PCH Dashboard" className={classes.projectImg} />
+	<img src={NavCRM} alt="CRM Dashboard" className={classes.projectImg} />
+</Box>
+<Box className={classes.projectsGrid} sx={{ pl: 20, pr: 20, mt: 8 }}>
+	<img src={NBAstatsapp} alt="NBA Stats App" className={classes.projectImg} />
+	<img src={PlanetWarrior} alt="Planet Warrior App" className={classes.projectImg} />
+	<img src={Biteboard} alt="Biteboard Recipe Sharing App" className={classes.projectImg} />
+</Box>
+<Box className={classes.projectsGrid} sx={{ pl: 20, pr: 20, mt: 8 }}>
+	<img src={Biteboard} alt="headshot" className={classes.projectImg} />
+	<img src={Golflive} alt="headshot" className={classes.projectImg} />
+	<img src={Memeshare} alt="headshot" className={classes.projectImg} />
+</Box> */
+}
