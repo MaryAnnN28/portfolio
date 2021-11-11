@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
 		fontFamily: 'Montserrat',
 		fontSize: '10pt',
 		fontWeight: 300,
-		color: 'rgba(124, 120, 93)',
+		color: '#888A8D',
 		'&:hover': {
 			color: 'rgba(103, 99, 73)',
 			fontWeight: 600,
@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
 	icons: {
 		marginRight: '1.5em',
 		zIndex: 1,
-		color: 'rgba(124, 120, 93)',
+		color: '#40485C',
 		'&:hover': {
 			color: '#8A9BB1',
 			paddingBottom: 3,
@@ -59,53 +59,58 @@ const Navbar = (props) => {
 	}
 
 	useLayoutEffect(() => {
-		const animation1 = fadeIn(link1.current, { y: -30, duration: 1, ease: 'back.out(3)', delay: 4 })
+		const animation1 = fadeIn(link1.current, { y: -30, duration: 1, ease: 'back.out(3)', delay: 2 })
 		const animation2 = fadeIn(link2.current, {
 			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 4.1,
+			delay: 2.1,
 		})
 		const animation3 = fadeIn(link3.current, {
 			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 4.2,
+			delay: 2.2,
 		})
 		const animation4 = fadeIn(link4.current, {
 			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 4.3,
+			delay: 2.3,
 		})
 		const animation5 = fadeIn(icon1.current, {
-			x: 30,
+			x: 35,
+			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 6,
+			delay: 3.4,
 		})
 		const animation6 = fadeIn(icon2.current, {
-			x: 30,
+			x: 35,
+			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 6.1,
+			delay: 3.5,
 		})
 		const animation7 = fadeIn(icon3.current, {
-			x: 30,
+			x: 35,
+			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 6.2,
+			delay: 3.6,
 		})
 		const animation8 = fadeIn(icon4.current, {
-			x: 30,
+			x: 35,
+			y: -30,
 			duration: 1,
 			ease: 'back.out(3)',
-			delay: 6.3,
+			delay: 3.7,
 		})
 		const animation9 = fadeIn(logo.current, {
 			y: -20,
-			duration: 5,
-			ease: 'back.out(3)',
+			x: -25,
+			duration: 4,
+			ease: 'power1.out',
 			delay: 12.4,
 		})
 	}, [])

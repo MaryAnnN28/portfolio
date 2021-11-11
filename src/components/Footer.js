@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
 		opacity: '40%',
 		position: 'relative',
 		bottom: 0,
-		background: 'rgba(25, 41, 103)',
+		backgroundColor: '#1D2026',
 	},
 	link: {
 		fontFamily: 'Montserrat',

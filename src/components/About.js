@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
 		display: 'flex',
 		position: 'relative',
 		transform: 'rotate(28deg)',
-		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
+		backgroundColor: '#101011',
 		opacity: '50%',
 		top: -680,
 		left: -310,
@@ -30,16 +30,15 @@ const useStyles = makeStyles(() => ({
 		display: 'flex',
 		position: 'relative',
 		transform: 'rotate(52deg)',
-		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
-		opacity: '20%',
+		backgroundColor: '#101011',
+		opacity: '40%',
 		top: -60,
 		right: -460,
 		zIndex: 1,
 	},
 	aboutTitle: {
-		color: 'rgba(113, 110, 87)',
+		color: '#40495C',
 		fontFamily: 'Montserrat',
-		// textTransform: 'uppercase',
 		fontSize: '20pt',
 		fontWeight: '400',
 		letterSpacing: '2px',
@@ -53,7 +52,7 @@ const useStyles = makeStyles(() => ({
 		lineHeight: '1.8',
 	},
 	techTitle: {
-		color: 'rgba(113, 110, 87)',
+		color: '#888A8D',
 		fontSize: '11pt',
 		letterSpacing: '2px',
 		fontFamily: 'Montserrat',
@@ -82,11 +81,11 @@ const useStyles = makeStyles(() => ({
 	headshotBox1: {
 		width: '300px',
 		height: '300px',
-		background: 'linear-gradient(38deg, rgba(29,30,34,1) 17%, rgba(16,16,16,1) 62%)',
+		backgroundColor: '#40495C',
+		opacity: '50%',
 		display: 'flex',
 		position: 'relative',
 		transform: 'rotate(-3deg)',
-		opacity: '60%',
 		top: -10,
 		left: 0,
 		zIndex: 0,
@@ -132,48 +131,48 @@ const About = () => {
 							<Grid item md={4}>
 								<ul className={classes.techText}>
 									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> JavaScript
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> JavaScript
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> HTML
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> HTML
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> CSS
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> CSS
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Ruby/Rails
-									</li>
-								</ul>
-							</Grid>
-							<Grid item md={4}>
-								<ul className={classes.techText}>
-									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> React
-									</li>
-									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Strapi
-									</li>
-									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> MongoDB
-									</li>
-									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> SQL
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> Ruby/Rails
 									</li>
 								</ul>
 							</Grid>
 							<Grid item md={4}>
 								<ul className={classes.techText}>
 									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> WordPress
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> React
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Material-UI
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> Strapi
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Bootstrap
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> MongoDB
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#374B75" fontSize="16px" /> Adobe Photoshop
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> SQL
+									</li>
+								</ul>
+							</Grid>
+							<Grid item md={4}>
+								<ul className={classes.techText}>
+									<li>
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> WordPress
+									</li>
+									<li>
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> Material-UI
+									</li>
+									<li>
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> Bootstrap
+									</li>
+									<li>
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> Adobe Photoshop
 									</li>
 								</ul>
 							</Grid>

@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
 		fontFamily: 'Montserrat',
 		fontWeight: 500,
 		marginTop: -35,
-		marginBottom: 12,
+		marginBottom: 10,
 		lineHeight: 1,
 	},
 	header2: {
@@ -43,63 +43,53 @@ const useStyles = makeStyles(() => ({
 		letterSpacing: '12px',
 		fontFamily: 'Montserrat',
 		fontWeight: 500,
-		marginTop: -20,
+		marginTop: -12,
 		marginLeft: -6,
-		marginBottom: 5,
 		lineHeight: 1,
 	},
 	andSymbol: {
 		fontFamily: 'Caramel',
 		fontSize: '122pt',
-		color: 'rgba(113, 110, 87)',
+		color: '#393F4F',
 		transform: 'rotate(-10deg)',
 		fontWeight: 200,
-		marginTop: -90,
+		marginTop: -86,
 		marginLeft: -10,
-		marginBottom: 5,
 		lineHeight: 1,
 		zIndex: 1,
 	},
 	subtitle: {
 		fontSize: '22pt',
-		color: '#999999',
+		color: '#888A8D',
 		letterSpacing: '11px',
 		fontFamily: 'Montserrat',
 		fontWeight: 300,
 		marginLeft: '5px',
-	},
-	subtitle2: {
-		fontSize: '24pt',
-		color: '#818589',
-		letterSpacing: '12px',
-		fontFamily: 'Montserrat',
-		fontWeight: 500,
-		marginLeft: '5px',
+		marginTop: -8,
 	},
 	box1: {
 		height: 400,
 		width: 400,
 		display: 'flex',
 		position: 'absolute',
-		transform: 'rotate(-29deg)',
-		backgroundColor: '#101011',
-		opacity: '40%',
-		top: 30,
+		transform: 'rotate(36deg)',
+		backgroundColor: '#40495C',
+		opacity: '50%',
+		top: 48,
 		left: -330,
 		// zIndex: 4,
 	},
 
 	box1a: {
-		height: 300,
-		width: 300,
+		height: 320,
+		width: 320,
 		display: 'flex',
 		position: 'absolute',
-		transform: 'rotate(28deg)',
-		top: 150,
-		left: -250,
+		transform: 'rotate(-28deg)',
+		top: 180,
+		left: -220,
 		opacity: '50%',
-		// backgroundColor: '#B59D4C',
-		background: 'linear-gradient(-60deg, rgba(39,52,91) 0%, rgba(25, 41, 103) 64%)',
+		backgroundColor: '#101011',
 	},
 
 	box2: {
@@ -111,10 +101,7 @@ const useStyles = makeStyles(() => ({
 		top: -80,
 		right: -330,
 		opacity: '50%',
-		background: ' rgba(133,129,104) ',
-		// background: ' rgba(25,39,92) ',
-		// background: 'linear-gradient(30deg, rgba(25,41,103) 2%, rgba(12, 22, 61) 91%)',
-		// background: 'linear-gradient(38deg, rgba(181,157,76,1) 0%, rgba(116,103,62,1) 64%)',
+		backgroundColor: '#40495C',
 	},
 
 	box2a: {
@@ -149,16 +136,16 @@ const Header = () => {
 		return gsap.to(target, { opacity: 0, ...vars })
 	}
 
-	useLayoutEffect(() => {
-		const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 4, delay: 5 })
-		const animation1 = fadeIn(and.current, { y: 50, ease: 'back.out(3)', duration: 4, delay: 6.7 })
-		const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 4, delay: 8.7 })
-		const animation3 = fadeIn(enhanced.current, { y: 100, ease: 'back.out(1)', duration: 4, delay: 10.1 })
-		const animation4 = fadeIn(box1.current, { rotation: 30, x: 50, duration: 4, delay: 0.5 })
-		const animation5 = fadeIn(box1a.current, { rotation: -30, x: 50, duration: 4, delay: 2.5 })
-		const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4, delay: 0.5 })
-		const animation7 = fadeIn(box2a.current, { rotation: 45, x: 0, duration: 4, delay: 2.5 })
-	}, [])
+	// useLayoutEffect(() => {
+	// 	const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 4, delay: 5 })
+	// 	const animation1 = fadeIn(and.current, { y: 50, ease: 'back.out(3)', duration: 4, delay: 6.7 })
+	// 	const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 4, delay: 8.7 })
+	// 	const animation3 = fadeIn(enhanced.current, { y: 100, ease: 'back.out(1)', duration: 4, delay: 10.1 })
+	// 	const animation4 = fadeIn(box1.current, { rotation: 70, x: 30, duration: 4, delay: 0.7 })
+	// 	const animation5 = fadeIn(box1a.current, { rotation: -35, x: -20, duration: 3, delay: 2.9 })
+	// 	const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4 })
+	// 	const animation7 = fadeIn(box2a.current, { rotation: 45, x: 0, duration: 4, delay: 2.2 })
+	// }, [])
 
 	return (
 		<>

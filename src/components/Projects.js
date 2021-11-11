@@ -5,12 +5,23 @@ import {
 	Chip,
 	Typography,
 	makeStyles,
+	Paper,
+	Card,
+	CardMedia,
+	CardContent,
+	CardActions,
+	IconButton,
+	Collapse,
 	Dialog,
 	DialogActions,
 	DialogContent,
 	DialogContentText,
+	CardHeader,
+	Avatar,
 } from '@material-ui/core'
 import { Stack } from '@mui/material'
+import { styled } from '@material-ui/styles'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import PchFrontendSite from '../images/pch_frontendsite.png'
 import PchDashboardListings from '../images/pch_dashboardlistings.png'
 import NavCRM from '../images/navcrm.jpeg'
@@ -56,7 +67,7 @@ const useStyles = makeStyles(() => ({
 	},
 
 	projectsTitle: {
-		color: 'rgba(113, 110, 87)',
+		color: '#40495C',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
@@ -82,7 +93,7 @@ const useStyles = makeStyles(() => ({
 	},
 
 	projectImgModal: {
-		width: 510,
+		width: 540,
 		height: 410,
 		borderRadius: '1%',
 	},
@@ -101,15 +112,15 @@ const useStyles = makeStyles(() => ({
 		width: '500px',
 		height: '300px',
 		display: 'block',
-		opacity: '64%',
-		background: 'rgba(14, 14, 16)',
+		opacity: '70%',
+		background: '#181A1A',
 		zIndex: 1,
 		padding: 20,
 		marginLeft: -20,
 	},
 	projectSubtitle: {
 		textTransform: 'uppercase',
-		color: '#768AB8',
+		color: '#8C8C8C',
 		fontWeight: '600',
 		fontSize: '10pt',
 		letterSpacing: '3px',
@@ -126,13 +137,23 @@ const useStyles = makeStyles(() => ({
 		marginLeft: 15,
 		marginBottom: 14,
 	},
+	projectTitle2: {
+		color: '#efefef',
+		fontSize: '14pt',
+		fontWeight: '400',
+		fontFamily: 'Montserrat',
+		letterSpacing: '3px',
+		marginTop: 1,
+		marginLeft: 15,
+		marginBottom: 14,
+	},
 	projectDescText: {
 		color: '#e6e6e6',
-		fontSize: '10pt',
+		fontSize: '11pt',
 		fontWeight: '100',
 		lineHeight: '20px',
 		letterSpacing: '1.5px',
-		// fontFamily: 'Montserrat',
+		fontFamily: 'Montserrat',
 		marginLeft: 15,
 		marginRight: 100,
 	},
@@ -141,13 +162,32 @@ const useStyles = makeStyles(() => ({
 		marginTop: 20,
 		wordSpacing: 5,
 	},
+	projectCard: {
+		opacity: '60%',
+		background: '#23262F',
+	},
+	expandIcon: {
+		color: '#efefef',
+	},
 }))
+
+// const ExpandMore = styled((props) => {
+// 	const { expand, ...other } = props
+// 	return <IconButton {...other} />
+// })(({ theme, expand }) => ({
+// 	transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+// 	marginLeft: 'auto',
+// 	transition: theme.transitions.create('transform', {
+// 		duration: theme.transitions.duration.shortest,
+// 	}),
+// }))
 
 const Projects = () => {
 	const classes = useStyles()
 	const mounted = useMounted()
 	const [projects, setProjects] = useState([])
 	const [isOpen, setIsOpen] = useState(false)
+	const [expanded, setExpanded] = useState(false)
 
 	const getProjectObjs = useCallback(async () => {
 		try {
@@ -163,6 +203,10 @@ const Projects = () => {
 
 	const handleProjectClick = (values) => {
 		setIsOpen(true)
+	}
+
+	const handleExpandClick = () => {
+		setExpanded(true)
 	}
 
 	const handleClose = () => {
@@ -206,10 +250,10 @@ const Projects = () => {
 							</div>
 							<Grid container className={classes.projectTech}>
 								<Stack direction="row" spacing={1} alignItems="right" sx={{ p: 1 }}>
-									<Chip label="React" style={{ backgroundColor: '#192967', color: '#efefef', mr: 2 }} />
-									<Chip label="Material UI" style={{ backgroundColor: '#192967', color: '#efefef' }} />
-									<Chip label="MongoDB" style={{ backgroundColor: '#192967', color: '#efefef' }} />
-									<Chip label="Strapi" style={{ backgroundColor: '#192967', color: '#efefef' }} />
+									<Chip label="React" style={{ backgroundColor: '#343A48', color: '#efefef', mr: 2 }} />
+									<Chip label="Material UI" style={{ backgroundColor: '#343A48', color: '#efefef' }} />
+									<Chip label="MongoDB" style={{ backgroundColor: '#343A48', color: '#efefef' }} />
+									<Chip label="Strapi" style={{ backgroundColor: '#343A48', color: '#efefef' }} />
 								</Stack>
 							</Grid>
 						</div>
@@ -240,10 +284,10 @@ const Projects = () => {
 							</div>
 							<Grid container className={classes.projectTech}>
 								<Stack direction="row" spacing={1} alignItems="right" sx={{ p: 1 }}>
-									<Chip label="React" style={{ backgroundColor: '#192967', color: '#efefef', mr: 2 }} />
-									<Chip label="Material UI" style={{ backgroundColor: '#192967', color: '#efefef' }} />
-									<Chip label="MongoDB" style={{ backgroundColor: '#192967', color: '#efefef' }} />
-									<Chip label="Strapi" style={{ backgroundColor: '#192967', color: '#efefef' }} />
+									<Chip label="React" style={{ backgroundColor: '#343A48', color: '#efefef', mr: 2 }} />
+									<Chip label="Material UI" style={{ backgroundColor: '#343A48', color: '#efefef' }} />
+									<Chip label="MongoDB" style={{ backgroundColor: '#343A48', color: '#efefef' }} />
+									<Chip label="Strapi" style={{ backgroundColor: '#343A48', color: '#efefef' }} />
 								</Stack>
 							</Grid>
 						</div>
@@ -252,22 +296,38 @@ const Projects = () => {
 						<img src={PchDashboardListings} alt="PCH Dashboard" className={classes.feauturedProjectImg} />
 					</div>
 				</Box>
-				<Grid container spacing={8} sx={{ ml: 15, mr: 15 }}>
+				<Grid container spacing={10} sx={{ ml: 15, mr: 15 }}>
 					{projects.map((project) => (
 						<>
-							<Grid item md={4} lg={4} sx={{ mt: 4, mb: 4 }} onClick={() => handleProjectClick(project.id)}>
-								<img src={project.image} alt={project.name} className={classes.projectImg} />
+							<Grid item md={4}>
+								<Card className={classes.projectCard} sx={{ maxWidth: 300 }}>
+									<CardMedia component="img" height="270" image={project.image} alt={project.name} />
+									<CardContent>
+										<Typography className={classes.projectTitle2} gutterBottom variant="h6" component="div">
+											{project.name}
+										</Typography>
+										<Stack direction="row" spacing={1} alignItems="left">
+											{project.tech.map((tech) => (
+												<Chip label={tech} size="small" style={{ backgroundColor: '#40485C', color: '#efefef' }} />
+											))}
+										</Stack>
+										{/* <Typography variant="body2">{project.description}</Typography> */}
+									</CardContent>
+									<CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'right' }}>
+										<IconButton>
+											<ExpandMoreIcon className={classes.expandIcon} />
+										</IconButton>
+										<IconButton>
+											<ExpandMoreIcon className={classes.expandIcon} />
+										</IconButton>
+									</CardActions>
+								</Card>
 							</Grid>
-							<Dialog open={isOpen} onClose={() => setIsOpen(false)} maxWidth={'md'}>
-								<DialogContent>
-									<img src={project.image} alt={project.name} className={classes.projectImgModal} />
-								</DialogContent>
-							</Dialog>
 						</>
 					))}
 				</Grid>
-				<div className={classes.box1}></div>
-				<div className={classes.box2}></div>
+				{/* <div className={classes.box1}></div>
+				<div className={classes.box2}></div> */}
 			</Grid>
 		</Box>
 	)
