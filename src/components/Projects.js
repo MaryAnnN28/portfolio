@@ -104,6 +104,7 @@ const useStyles = makeStyles(() => ({
 		display: 'flex',
 		zIndex: 999,
 		marginTop: 50,
+		marginLeft: -40,
 	},
 	projectDescBox: {
 		width: '500px',
@@ -113,7 +114,7 @@ const useStyles = makeStyles(() => ({
 		background: '#181A1A',
 		zIndex: 1,
 		padding: 20,
-		marginLeft: -20,
+		marginRight: -20,
 		paddingBottom: 30,
 	},
 	projectSubtitle: {
@@ -149,7 +150,7 @@ const useStyles = makeStyles(() => ({
 		fontWeight: '100',
 		lineHeight: '20px',
 		letterSpacing: '1.5px',
-		fontFamily: 'Montserrat',
+		// fontFamily: 'Montserrat',
 		marginLeft: 15,
 		marginRight: 100,
 	},
@@ -279,11 +280,6 @@ const Projects = () => {
 									<Chip label="Strapi" style={{ backgroundColor: '#566378', color: '#efefef' }} />
 								</Stack>
 							</Grid>
-							<div className={classes.cardActions}>
-								<Button className={classes.learnMoreButton} sx={{ color: '#e6e6e6' }}>
-									Learn More
-								</Button>
-							</div>
 						</div>
 					</div>
 					<div className={classes.rightProjectContainer}>

@@ -141,14 +141,14 @@ const About = () => {
 										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> CSS
 									</li>
 									<li>
-										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> Ruby/Rails
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> React
 									</li>
 								</ul>
 							</Grid>
 							<Grid item md={4}>
 								<ul className={classes.techText}>
 									<li>
-										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> React
+										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> Node.js
 									</li>
 									<li>
 										<HiOutlineArrowSmRight color="#888A8D" fontSize="16px" /> Strapi
