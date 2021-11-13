@@ -37,7 +37,8 @@ const useStyles = makeStyles(() => ({
 		zIndex: 1,
 	},
 	aboutTitle: {
-		color: '#40495C',
+		color: '#A5B2CC',
+		// color: '#8093BA',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		fontWeight: '400',
@@ -52,7 +53,7 @@ const useStyles = makeStyles(() => ({
 		lineHeight: '1.8',
 	},
 	techTitle: {
-		color: '#888A8D',
+		color: '#A5B2CC',
 		fontSize: '11pt',
 		letterSpacing: '2px',
 		fontFamily: 'Montserrat',

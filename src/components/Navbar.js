@@ -22,9 +22,9 @@ const useStyles = makeStyles(() => ({
 		fontFamily: 'Montserrat',
 		fontSize: '10pt',
 		fontWeight: 300,
-		color: '#888A8D',
+		color: '#e6e6e6',
 		'&:hover': {
-			color: 'rgba(103, 99, 73)',
+			color: '#566378',
 			fontWeight: 600,
 		},
 		letterSpacing: '3px',
@@ -32,9 +32,10 @@ const useStyles = makeStyles(() => ({
 	icons: {
 		marginRight: '1.5em',
 		zIndex: 1,
-		color: '#40485C',
+		// color: '#40485C',
+		color: '#888A8D',
 		'&:hover': {
-			color: '#8A9BB1',
+			color: '#566378',
 			paddingBottom: 3,
 		},
 	},

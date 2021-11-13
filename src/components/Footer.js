@@ -11,27 +11,29 @@ const useStyles = makeStyles(() => ({
 	footerContainer: {
 		width: '100%',
 		height: '150px',
-		opacity: '40%',
+		opacity: '50%',
 		position: 'relative',
 		bottom: 0,
-		backgroundColor: '#1D2026',
+		backgroundColor: '#101010',
 	},
 	link: {
 		fontFamily: 'Montserrat',
 		fontSize: '10pt',
 		fontWeight: 300,
-		color: '#e6e6e6',
+		zIndex: 1,
+		color: '#A5B2CC',
 		'&:hover': {
-			color: '#898989',
+			color: '#566378',
 		},
 		letterSpacing: '1.5pt',
 	},
 	logo: {
 		fontFamily: 'Gruppo',
 		fontSize: '50pt',
-		color: '#e6e6e6',
+		zIndex: 1,
+		color: '#A5B2CC',
 		'&:hover': {
-			color: '#B59D4C',
+			color: '#566378',
 			fontWeight: 100,
 		},
 		letterSpacing: '5px',
@@ -40,9 +42,9 @@ const useStyles = makeStyles(() => ({
 		// marginRight: '1.5em',
 		paddingLeft: '1em',
 		zIndex: 1,
-		color: '#e6e6e6',
+		color: '#A5B2CC',
 		'&:hover': {
-			color: '#484848',
+			color: '#566378',
 		},
 	},
 }))
@@ -59,7 +61,7 @@ const Footer = (props) => {
 
 	return (
 		<Grid container className={classes.footerContainer} sx={{ paddingTop: 1.5, pl: 10 }}>
-			<Grid item md={4}>
+			<Grid item md={3}>
 				<Box
 					sx={{
 						alignItems: 'center',
@@ -70,7 +72,7 @@ const Footer = (props) => {
 					<Typography className={classes.logo}>MN</Typography>
 				</Box>
 			</Grid>
-			<Grid item md={5}>
+			<Grid item md={6}>
 				<Box
 					sx={{
 						alignItems: 'center',
@@ -138,36 +140,16 @@ const Footer = (props) => {
 						zIndex: 22,
 					}}
 				>
-					<Link
-						className={classes.icons}
-						href="https://github.com/MaryAnnN28"
-						target="_blank"
-						sx={{ color: '#efefef' }}
-					>
+					<Link className={classes.icons} href="https://github.com/MaryAnnN28" target="_blank">
 						<FaGithub fontSize="22px" />
 					</Link>
-					<Link
-						className={classes.icons}
-						href="https://www.linkedin.com/in/maryannnavarrete/"
-						target="_blank"
-						sx={{ color: '#efefef' }}
-					>
+					<Link className={classes.icons} href="https://www.linkedin.com/in/maryannnavarrete/" target="_blank">
 						<FaLinkedinIn fontSize="22px" />
 					</Link>
-					<Link
-						className={classes.icons}
-						href="https://maryann-navarrete.medium.com/"
-						target="_blank"
-						sx={{ color: '#efefef' }}
-					>
+					<Link className={classes.icons} href="https://maryann-navarrete.medium.com/" target="_blank">
 						<FaMediumM fontSize="22px" />
 					</Link>
-					<Link
-						className={classes.icons}
-						href="https://www.twitter.com/maryannn28"
-						target="_blank"
-						sx={{ color: '#efefef' }}
-					>
+					<Link className={classes.icons} href="https://www.twitter.com/maryannn28" target="_blank">
 						<FaTwitter fontSize="22px" />
 					</Link>
 				</Box>

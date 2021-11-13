@@ -50,7 +50,7 @@ const useStyles = makeStyles(() => ({
 	andSymbol: {
 		fontFamily: 'Caramel',
 		fontSize: '122pt',
-		color: '#393F4F',
+		color: '#566378',
 		transform: 'rotate(-10deg)',
 		fontWeight: 200,
 		marginTop: -86,
@@ -73,7 +73,7 @@ const useStyles = makeStyles(() => ({
 		display: 'flex',
 		position: 'absolute',
 		transform: 'rotate(36deg)',
-		backgroundColor: '#40495C',
+		backgroundColor: '#566378',
 		opacity: '50%',
 		top: 48,
 		left: -330,
@@ -87,7 +87,7 @@ const useStyles = makeStyles(() => ({
 		position: 'absolute',
 		transform: 'rotate(-28deg)',
 		top: 180,
-		left: -220,
+		left: -230,
 		opacity: '50%',
 		backgroundColor: '#101011',
 	},
@@ -101,7 +101,7 @@ const useStyles = makeStyles(() => ({
 		top: -80,
 		right: -330,
 		opacity: '50%',
-		backgroundColor: '#40495C',
+		backgroundColor: '#566378',
 	},
 
 	box2a: {
