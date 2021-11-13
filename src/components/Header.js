@@ -123,7 +123,7 @@ const useStyles = makeStyles(() => ({
 		opacity: '50%',
 		top: 48,
 		left: -330,
-		// zIndex: 4,
+		zIndex: 1,
 	},
 
 	box1a: {
@@ -136,6 +136,7 @@ const useStyles = makeStyles(() => ({
 		left: -230,
 		opacity: '50%',
 		backgroundColor: '#101011',
+		zIndex: 2,
 	},
 
 	box2: {
@@ -205,14 +206,14 @@ const Header = () => {
 			duration: 4,
 			delay: 2.5,
 		})
-		const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 2.6, delay: 6.6 })
-		const animation1 = fadeIn(and.current, { x: 50, ease: 'back.out(2)', duration: 3, delay: 7.1 })
-		const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 2.6, delay: 7.5 })
-		const animation3 = fadeIn(enhanced.current, { x: -100, ease: 'back.out(1)', duration: 3, delay: 7.9 })
-		const animation4 = fadeIn(box1.current, { rotation: 70, x: 30, duration: 4, delay: 6.2 })
-		const animation5 = fadeIn(box1a.current, { rotation: -35, y: -100, duration: 3.3, delay: 6.8 })
-		const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4, delay: 6.3 })
-		const animation7 = fadeIn(box2a.current, { rotation: 55, x: 0, duration: 3.3, delay: 7 })
+		const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 2.6, delay: 6.8 })
+		const animation1 = fadeIn(and.current, { x: 50, ease: 'back.out(2)', duration: 3, delay: 7.3 })
+		const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 2.6, delay: 7.7 })
+		const animation3 = fadeIn(enhanced.current, { x: -100, ease: 'back.out(1)', duration: 2, delay: 8.2 })
+		const animation4 = fadeIn(box1.current, { rotation: 70, x: 30, duration: 4, delay: 6.8 })
+		const animation5 = fadeIn(box1a.current, { rotation: -55, y: 60, duration: 3, delay: 7.8 })
+		const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4, delay: 6.4 })
+		const animation7 = fadeIn(box2a.current, { rotation: 55, x: 0, duration: 3.3, delay: 7.1 })
 	}, [])
 
 	return (

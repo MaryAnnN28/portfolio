@@ -84,10 +84,10 @@ const Navbar = (props) => {
 		const logoAnimation = scaleOut(logo.current, {
 			y: 320,
 			x: 592,
-			duration: 5,
+			duration: 3.2,
 			delay: 3,
 			ease: 'power1.out',
-			scale: 4,
+			scale: 3.5,
 		})
 		const animation1 = fadeIn(link1.current, { y: -30, duration: 0.8, ease: 'back.out(3)', delay: 5.0 })
 		const animation2 = fadeIn(link2.current, {
