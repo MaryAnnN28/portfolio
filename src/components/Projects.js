@@ -210,7 +210,7 @@ const Projects = () => {
 	console.log(projects)
 
 	return (
-		<Box className={classes.projectsContainer}>
+		<Box className={classes.projectsContainer} id="section2">
 			<Grid container>
 				<Grid item md={12} lg={12}>
 					<Box>

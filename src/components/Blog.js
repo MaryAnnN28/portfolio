@@ -14,16 +14,18 @@ import {
 } from '@material-ui/core'
 import { Stack } from '@mui/material'
 
-const BLOG_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@maryann-navarrete'
+// const BLOG_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@maryann-navarrete'
+const BLOG_URL = 'https://api.medium.com/v1/users/@maryann-navarrete/publications'
 
 const useStyles = makeStyles(() => ({
 	blogContainer: {
 		display: 'flex',
 		justifyContent: 'center',
 		paddingBottom: '6rem',
+		paddingTop: '6rem',
 	},
 	projectsTitle: {
-		color: 'rgba(113, 110, 87)',
+		color: '#A5B2CC',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		letterSpacing: '2px',
@@ -38,13 +40,17 @@ const useStyles = makeStyles(() => ({
 		zIndex: 2,
 	},
 	blogCard: {
-		background: '#1d1e22',
+		background: '#23262F',
 		padding: '1em',
 		zIndex: 2,
 	},
 	blogTitle: {
 		color: '#e6e6e6',
 		zIndex: 6,
+	},
+	cardActions: {
+		display: 'flex',
+		justifyContent: 'flex-end',
 	},
 	readMoreButton: {
 		color: '#e6e6e6',
@@ -147,7 +153,7 @@ const Blog = () => {
 	if (!blogs) return null
 
 	return (
-		<Box className={classes.blogContainer}>
+		<Box className={classes.blogContainer} id="section3">
 			<Grid container>
 				<Grid item md={12} lg={12}>
 					<Box sx={{ pl: 20 }}>
@@ -163,46 +169,47 @@ const Blog = () => {
 							sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}
 						>
 							{blogs.map((blog) => (
-								<Grid item md={6} lg={6} xs={12} className={classes.blogBox}>
-									<Card sx={{}} className={classes.blogCard}>
-										<CardMedia component="img" height="180" image={blog.thumbnail} alt={blog.title} />
-
-										<CardContent>
-											<Typography
-												// variant="body1"
-												className={classes.blogTitle}
-												sx={{ fontSize: '10px' }}
-											>
-												{blog.title}
-											</Typography>
-										</CardContent>
-										<CardActionArea sx={{ p: 2 }}>
-											<Grid
-												container
-												direction="column"
-												sx={{ display: 'flex', justifyContent: 'space-between', paddingLeft: 2 }}
-											>
-												<Grid item md={12} sx={{ ml: 4 }}>
-													<Stack direction="row" spacing={1} alignItems="right" sx={{ p: 1 }}>
-														{blog.categories.map((category) => (
-															<Chip label={`${category}`} style={{ backgroundColor: '#27345B', color: '#d6d6d6' }} />
-														))}
-													</Stack>
+								<>
+									<Grid item md={4} lg={4} xs={12} className={classes.blogBox}>
+										<Card sx={{}} className={classes.blogCard}>
+											<CardMedia component="img" height="180" image={blog.thumbnail} alt={blog.title} />
+										</Card>
+									</Grid>
+									<Grid item md={7} lg={7} xs={12} className={classes.blogBox}>
+										<Card sx={{}} className={classes.blogCard}>
+											<CardContent>
+												<Typography className={classes.blogTitle} sx={{ fontSize: '13px' }}>
+													{blog.title}
+												</Typography>
+											</CardContent>
+											<CardActionArea sx={{ p: 2 }}>
+												<Grid
+													container
+													direction="column"
+													sx={{ display: 'flex', justifyContent: 'space-between', paddingLeft: 2 }}
+												>
+													<Grid item md={12} sx={{ ml: 4 }}>
+														<Stack direction="row" spacing={1} alignItems="right" sx={{ p: 1 }}>
+															{blog.categories.map((category) => (
+																<Chip label={`${category}`} style={{ backgroundColor: '#566378', color: '#d6d6d6' }} />
+															))}
+														</Stack>
+													</Grid>
+													<Grid item md={12} className={classes.cardActions}>
+														<Button
+															className={classes.readMoreButton}
+															href={blog.link}
+															target="_blank"
+															sx={{ color: '#e6e6e6' }}
+														>
+															Read More
+														</Button>
+													</Grid>
 												</Grid>
-												<Grid item md={12}>
-													<Button
-														className={classes.readMoreButton}
-														href={blog.link}
-														target="_blank"
-														sx={{ color: '#e6e6e6' }}
-													>
-														Read More
-													</Button>
-												</Grid>
-											</Grid>
-										</CardActionArea>
-									</Card>
-								</Grid>
+											</CardActionArea>
+										</Card>
+									</Grid>
+								</>
 							))}
 						</Grid>
 					</Box>

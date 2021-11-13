@@ -2,6 +2,8 @@ import React, { useLayoutEffect, useRef } from 'react'
 import { Box, Grid, Typography, makeStyles } from '@material-ui/core'
 import Navbar from './Navbar'
 import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import MNsvg from '../images/MN_logo.svg'
 
 const useStyles = makeStyles(() => ({
 	headerContainer: {
@@ -128,6 +130,8 @@ const Header = () => {
 	const box2 = useRef()
 	const box2a = useRef()
 
+	gsap.registerPlugin(ScrollTrigger)
+
 	function fadeIn(target, vars) {
 		return gsap.from(target, { opacity: 0, ...vars })
 	}
@@ -136,16 +140,16 @@ const Header = () => {
 		return gsap.to(target, { opacity: 0, ...vars })
 	}
 
-	// useLayoutEffect(() => {
-	// 	const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 4, delay: 5 })
-	// 	const animation1 = fadeIn(and.current, { y: 50, ease: 'back.out(3)', duration: 4, delay: 6.7 })
-	// 	const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 4, delay: 8.7 })
-	// 	const animation3 = fadeIn(enhanced.current, { y: 100, ease: 'back.out(1)', duration: 4, delay: 10.1 })
-	// 	const animation4 = fadeIn(box1.current, { rotation: 70, x: 30, duration: 4, delay: 0.7 })
-	// 	const animation5 = fadeIn(box1a.current, { rotation: -35, x: -20, duration: 3, delay: 2.9 })
-	// 	const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4 })
-	// 	const animation7 = fadeIn(box2a.current, { rotation: 45, x: 0, duration: 4, delay: 2.2 })
-	// }, [])
+	useLayoutEffect(() => {
+		const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 2.6, delay: 4.3 })
+		const animation1 = fadeIn(and.current, { x: 50, ease: 'back.out(2)', duration: 3, delay: 5.1 })
+		const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 2.6, delay: 5.6 })
+		const animation3 = fadeIn(enhanced.current, { x: -100, ease: 'back.out(1)', duration: 3, delay: 6.1 })
+		const animation4 = fadeIn(box1.current, { rotation: 70, x: 30, duration: 4, delay: 0.8 })
+		const animation5 = fadeIn(box1a.current, { rotation: -35, y: -100, duration: 3.3, delay: 3.1 })
+		const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4, delay: 0.3 })
+		const animation7 = fadeIn(box2a.current, { rotation: 55, x: 0, duration: 3.3, delay: 2.2 })
+	}, [])
 
 	return (
 		<>

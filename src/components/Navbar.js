@@ -23,9 +23,14 @@ const useStyles = makeStyles(() => ({
 		fontSize: '10pt',
 		fontWeight: 300,
 		color: '#e6e6e6',
+		position: 'relative',
+		textDecoration: 'none',
+		transition: 'all 0.25s linear',
 		'&:hover': {
-			color: '#566378',
-			fontWeight: 600,
+			color: '#efefef',
+			letterSpacing: '6px',
+			backgroundColor: '#566378',
+			padding: '.15em',
 		},
 		letterSpacing: '3px',
 	},
@@ -36,7 +41,7 @@ const useStyles = makeStyles(() => ({
 		color: '#888A8D',
 		'&:hover': {
 			color: '#566378',
-			paddingBottom: 3,
+			padding: '.2em',
 		},
 	},
 }))
@@ -59,60 +64,70 @@ const Navbar = (props) => {
 		return gsap.from(target, { opacity: 0, ...vars })
 	}
 
+	function scrollToSection(link, index) {
+		return gsap.to(window, {
+			duration: 1,
+			scrollTo: {
+				y: link + (index + 1),
+				offsetY: 70,
+			},
+		})
+	}
+
 	useLayoutEffect(() => {
-		const animation1 = fadeIn(link1.current, { y: -30, duration: 1, ease: 'back.out(3)', delay: 2 })
+		const animation1 = fadeIn(link1.current, { y: -30, duration: 0.8, ease: 'back.out(3)', delay: 2 })
 		const animation2 = fadeIn(link2.current, {
 			y: -30,
-			duration: 1,
+			duration: 0.8,
 			ease: 'back.out(3)',
 			delay: 2.1,
 		})
 		const animation3 = fadeIn(link3.current, {
 			y: -30,
-			duration: 1,
+			duration: 0.8,
 			ease: 'back.out(3)',
 			delay: 2.2,
 		})
 		const animation4 = fadeIn(link4.current, {
 			y: -30,
-			duration: 1,
+			duration: 0.8,
 			ease: 'back.out(3)',
 			delay: 2.3,
 		})
 		const animation5 = fadeIn(icon1.current, {
 			x: 35,
 			y: -30,
-			duration: 1,
+			duration: 0.7,
 			ease: 'back.out(3)',
 			delay: 3.4,
 		})
 		const animation6 = fadeIn(icon2.current, {
 			x: 35,
 			y: -30,
-			duration: 1,
+			duration: 0.7,
 			ease: 'back.out(3)',
 			delay: 3.5,
 		})
 		const animation7 = fadeIn(icon3.current, {
 			x: 35,
 			y: -30,
-			duration: 1,
+			duration: 0.7,
 			ease: 'back.out(3)',
 			delay: 3.6,
 		})
 		const animation8 = fadeIn(icon4.current, {
 			x: 35,
 			y: -30,
-			duration: 1,
+			duration: 0.7,
 			ease: 'back.out(3)',
 			delay: 3.7,
 		})
 		const animation9 = fadeIn(logo.current, {
 			y: -20,
 			x: -25,
-			duration: 4,
+			duration: 3,
 			ease: 'power1.out',
-			delay: 12.4,
+			delay: 8.1,
 		})
 	}, [])
 
@@ -150,55 +165,26 @@ const Navbar = (props) => {
 						pr: 25,
 					}}
 				>
-					<Link
-						component={RouterLink}
-						to="/about"
-						underline="none"
-						sx={{
-							px: 0.5,
-						}}
-					>
+					<a href="#section1" className={classes.link} ref={link1}>
 						<Typography className={classes.link} ref={link1}>
 							About
 						</Typography>
-					</Link>
-
-					<Link
-						component={RouterLink}
-						to="/projects"
-						underline="none"
-						sx={{
-							px: 1,
-						}}
-					>
+					</a>
+					<a href="#section2" className={classes.link}>
 						<Typography className={classes.link} ref={link2}>
 							Projects
 						</Typography>
-					</Link>
-					<Link
-						component={RouterLink}
-						to="/blog"
-						underline="none"
-						sx={{
-							px: 0.5,
-						}}
-					>
+					</a>
+					<a href="#section3" className={classes.link}>
 						<Typography className={classes.link} ref={link3}>
 							Blog
 						</Typography>
-					</Link>
-					<Link
-						component={RouterLink}
-						to="/contact"
-						underline="none"
-						sx={{
-							px: 0.5,
-						}}
-					>
+					</a>
+					<a href="#section4" className={classes.link}>
 						<Typography className={classes.link} ref={link4}>
 							Contact
 						</Typography>
-					</Link>
+					</a>
 				</Box>
 			</Grid>
 			<Grid item md={3} sx={{ display: 'flex', justifyContent: 'flex-end' }}>

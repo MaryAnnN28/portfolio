@@ -1,6 +1,8 @@
-import { useEffect, useRef } from 'react'
-import { Box, Container, Grid, Typography, makeStyles } from '@material-ui/core'
+import { useEffect, useLayoutEffect, useRef } from 'react'
+import { Box, Grid, Typography, makeStyles } from '@material-ui/core'
 import Picture from '../images/headshot.jpg'
+import { gsap } from 'gsap'
+import Fade from 'react-reveal/Fade'
 
 import { HiOutlineArrowSmRight } from 'react-icons/hi'
 
@@ -38,7 +40,6 @@ const useStyles = makeStyles(() => ({
 	},
 	aboutTitle: {
 		color: '#A5B2CC',
-		// color: '#8093BA',
 		fontFamily: 'Montserrat',
 		fontSize: '20pt',
 		fontWeight: '400',
@@ -73,7 +74,7 @@ const useStyles = makeStyles(() => ({
 	},
 	headshot: {
 		transform: 'rotate(6deg)',
-		width: '280px',
+		width: '260px',
 		position: 'absolute',
 		zIndex: 1,
 		filter: 'grayscale(30%)',
@@ -95,14 +96,42 @@ const useStyles = makeStyles(() => ({
 
 const About = () => {
 	const classes = useStyles()
+	const title = useRef()
+
+	gsap.to('.titleContainer', {
+		scrollTrigger: {
+			trigger: '.titleContainer',
+			start: 'top center',
+			end: 'bottom 100px',
+			markers: true,
+			toggleActions: 'restart pause reverse pause',
+		},
+		y: -100,
+		ease: 'power1.inOut',
+		duration: 2,
+	})
 
 	return (
-		<Box className={classes.aboutContainer}>
+		<Box className={classes.aboutContainer} id="section1">
 			<Grid container>
 				{/* LEFT COLUMN */}
 				<Grid item md={7} className={classes.aboutLeft}>
 					<Box sx={{ pl: 24, mb: 4, mt: 10 }}>
-						<Typography className={classes.aboutTitle}>about</Typography>
+						{/* <div className="titleContainer"> */}
+						<Typography
+							className="titleContainer"
+							ref={title}
+							style={{
+								color: '#A5B2CC',
+								fontFamily: 'Montserrat',
+								fontSize: '20pt',
+								fontWeight: '400',
+								letterSpacing: '2px',
+							}}
+						>
+							about
+						</Typography>
+						{/* </div> */}
 					</Box>
 					<Box sx={{ pl: 24, pr: 1, mb: 3 }}>
 						<Typography className={classes.aboutText}>
@@ -184,13 +213,7 @@ const About = () => {
 
 				{/* RIGHT COLUMN */}
 				<Grid item md={5}>
-					<Box
-						className={classes.rightContainer}
-						sx={{ mt: 20, ml: -6 }}
-						data-aos="fade-down"
-						data-aos-delay="500"
-						data-aos-duration="4000"
-					>
+					<Box className={classes.rightContainer} sx={{ mt: 20, ml: -20 }}>
 						<img src={Picture} alt="headshot" className={classes.headshot} />
 						<div className={classes.headshotBox1}></div>
 					</Box>
