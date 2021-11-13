@@ -22,6 +22,50 @@ const useStyles = makeStyles(() => ({
 		overflow: 'hidden',
 		overflowX: 'hidden',
 	},
+	introBoxLeft: {
+		width: '50vw',
+		height: '100vh',
+		top: 0,
+		position: 'absolute',
+		display: 'flex',
+		zIndex: 1,
+		opacity: '30%',
+		backgroundColor: '#101011',
+	},
+	introBoxLeft2: {
+		width: '50vw',
+		height: '60vh',
+		top: 0,
+		position: 'absolute',
+		display: 'flex',
+		zIndex: 1,
+		opacity: '30%',
+		backgroundColor: '#101011',
+		//
+	},
+	introBoxRight: {
+		width: '50vw',
+		height: '100vh',
+		top: 0,
+		right: 0,
+		position: 'absolute',
+		display: 'flex',
+		zIndex: 1,
+		opacity: '50%',
+		backgroundColor: '#353D4A',
+	},
+	introBoxRight2: {
+		width: '50vw',
+		height: '60vh',
+		bottom: 0,
+		right: 0,
+		position: 'absolute',
+		display: 'flex',
+		zIndex: 1,
+		opacity: '40%',
+		backgroundColor: '#353D4A',
+		// transform: 'rotate(-28deg)',
+	},
 	mainHeader: {
 		fontSize: '52pt',
 		color: '#e6e6e6',
@@ -121,6 +165,10 @@ const useStyles = makeStyles(() => ({
 
 const Header = () => {
 	const classes = useStyles()
+	const introBoxLeft = useRef()
+	const introBoxLeft2 = useRef()
+	const introBoxRight = useRef()
+	const introBoxRight2 = useRef()
 	const build = useRef()
 	const design = useRef()
 	const and = useRef()
@@ -136,19 +184,35 @@ const Header = () => {
 		return gsap.from(target, { opacity: 0, ...vars })
 	}
 
-	function rightBox(target, vars) {
+	function dissappear(target, vars) {
 		return gsap.to(target, { opacity: 0, ...vars })
 	}
 
 	useLayoutEffect(() => {
-		const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 2.6, delay: 4.3 })
-		const animation1 = fadeIn(and.current, { x: 50, ease: 'back.out(2)', duration: 3, delay: 5.1 })
-		const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 2.6, delay: 5.6 })
-		const animation3 = fadeIn(enhanced.current, { x: -100, ease: 'back.out(1)', duration: 3, delay: 6.1 })
-		const animation4 = fadeIn(box1.current, { rotation: 70, x: 30, duration: 4, delay: 0.8 })
-		const animation5 = fadeIn(box1a.current, { rotation: -35, y: -100, duration: 3.3, delay: 3.1 })
-		const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4, delay: 0.3 })
-		const animation7 = fadeIn(box2a.current, { rotation: 55, x: 0, duration: 3.3, delay: 2.2 })
+		const introAnimation1 = dissappear(introBoxLeft.current, { x: 500, ease: 'back.out(2)', duration: 4, delay: 1.1 })
+		const introAnimation2 = dissappear(introBoxLeft2.current, {
+			x: 250,
+			y: 250,
+			ease: 'back.out(2)',
+			duration: 4,
+			delay: 2.1,
+		})
+		const introAnimation3 = dissappear(introBoxRight.current, { x: -500, ease: 'back.out(2)', duration: 4, delay: 1.8 })
+		const introAnimation4 = dissappear(introBoxRight2.current, {
+			x: -400,
+			y: -400,
+			ease: 'back.out(2)',
+			duration: 4,
+			delay: 2.5,
+		})
+		const animation = fadeIn(build.current, { y: -50, ease: 'back.out(2)', duration: 2.6, delay: 6.6 })
+		const animation1 = fadeIn(and.current, { x: 50, ease: 'back.out(2)', duration: 3, delay: 7.1 })
+		const animation2 = fadeIn(design.current, { y: 50, ease: 'back.out(2)', duration: 2.6, delay: 7.5 })
+		const animation3 = fadeIn(enhanced.current, { x: -100, ease: 'back.out(1)', duration: 3, delay: 7.9 })
+		const animation4 = fadeIn(box1.current, { rotation: 70, x: 30, duration: 4, delay: 6.2 })
+		const animation5 = fadeIn(box1a.current, { rotation: -35, y: -100, duration: 3.3, delay: 6.8 })
+		const animation6 = fadeIn(box2.current, { rotation: 70, x: 0, duration: 4, delay: 6.3 })
+		const animation7 = fadeIn(box2a.current, { rotation: 55, x: 0, duration: 3.3, delay: 7 })
 	}, [])
 
 	return (
@@ -156,6 +220,10 @@ const Header = () => {
 			<Box className={classes.headerContainer}>
 				<Navbar className={classes.navbar} />
 				<div className={classes.boxContainer}>
+					<div className={classes.introBoxLeft} ref={introBoxLeft} />
+					<div className={classes.introBoxLeft2} ref={introBoxLeft2} />
+					<div className={classes.introBoxRight} ref={introBoxRight} />
+					<div className={classes.introBoxRight2} ref={introBoxRight2} />
 					<div className={classes.box1} ref={box1} />
 					<div className={classes.box1a} ref={box1a} />
 

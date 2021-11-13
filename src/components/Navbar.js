@@ -17,6 +17,8 @@ const useStyles = makeStyles(() => ({
 		'&:hover': {
 			color: '#B59D4C',
 		},
+		zIndex: 99,
+		position: 'absolute',
 	},
 	link: {
 		fontFamily: 'Montserrat',
@@ -64,6 +66,10 @@ const Navbar = (props) => {
 		return gsap.from(target, { opacity: 0, ...vars })
 	}
 
+	function scaleOut(target, vars) {
+		return gsap.from(target, { opacity: 1, ...vars })
+	}
+
 	function scrollToSection(link, index) {
 		return gsap.to(window, {
 			duration: 1,
@@ -75,59 +81,60 @@ const Navbar = (props) => {
 	}
 
 	useLayoutEffect(() => {
-		const animation1 = fadeIn(link1.current, { y: -30, duration: 0.8, ease: 'back.out(3)', delay: 2 })
+		const logoAnimation = scaleOut(logo.current, {
+			y: 320,
+			x: 592,
+			duration: 5,
+			delay: 3,
+			ease: 'power1.out',
+			scale: 4,
+		})
+		const animation1 = fadeIn(link1.current, { y: -30, duration: 0.8, ease: 'back.out(3)', delay: 5.0 })
 		const animation2 = fadeIn(link2.current, {
 			y: -30,
 			duration: 0.8,
 			ease: 'back.out(3)',
-			delay: 2.1,
+			delay: 5.1,
 		})
 		const animation3 = fadeIn(link3.current, {
 			y: -30,
 			duration: 0.8,
 			ease: 'back.out(3)',
-			delay: 2.2,
+			delay: 5.2,
 		})
 		const animation4 = fadeIn(link4.current, {
 			y: -30,
 			duration: 0.8,
 			ease: 'back.out(3)',
-			delay: 2.3,
+			delay: 5.3,
 		})
 		const animation5 = fadeIn(icon1.current, {
 			x: 35,
 			y: -30,
 			duration: 0.7,
 			ease: 'back.out(3)',
-			delay: 3.4,
+			delay: 5.8,
 		})
 		const animation6 = fadeIn(icon2.current, {
 			x: 35,
 			y: -30,
 			duration: 0.7,
 			ease: 'back.out(3)',
-			delay: 3.5,
+			delay: 5.9,
 		})
 		const animation7 = fadeIn(icon3.current, {
 			x: 35,
 			y: -30,
 			duration: 0.7,
 			ease: 'back.out(3)',
-			delay: 3.6,
+			delay: 6,
 		})
 		const animation8 = fadeIn(icon4.current, {
 			x: 35,
 			y: -30,
 			duration: 0.7,
 			ease: 'back.out(3)',
-			delay: 3.7,
-		})
-		const animation9 = fadeIn(logo.current, {
-			y: -20,
-			x: -25,
-			duration: 3,
-			ease: 'power1.out',
-			delay: 8.1,
+			delay: 6.1,
 		})
 	}, [])
 

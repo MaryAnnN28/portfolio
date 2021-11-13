@@ -101,13 +101,13 @@ const About = () => {
 	gsap.to('.titleContainer', {
 		scrollTrigger: {
 			trigger: '.titleContainer',
-			start: 'top center',
+			start: '20px 80%',
 			end: 'bottom 100px',
-			markers: true,
+			// markers: true,
 			toggleActions: 'restart pause reverse pause',
 		},
-		y: -100,
-		ease: 'power1.inOut',
+		y: 100,
+		opacity: 0,
 		duration: 2,
 	})
 
