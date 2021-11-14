@@ -153,7 +153,7 @@ const Blog = () => {
 	if (!blogs) return null
 
 	return (
-		<Box className={classes.blogContainer} id="section3">
+		<Box className={classes.blogContainer} id="blogSection">
 			<Grid container>
 				<Grid item md={12} lg={12}>
 					<Box sx={{ pl: 20 }}>

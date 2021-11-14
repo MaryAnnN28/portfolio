@@ -112,7 +112,7 @@ const About = () => {
 	})
 
 	return (
-		<Box className={classes.aboutContainer} id="section1">
+		<Box className={classes.aboutContainer} id="aboutSection">
 			<Grid container>
 				{/* LEFT COLUMN */}
 				<Grid item md={7} className={classes.aboutLeft}>

@@ -36,7 +36,7 @@ const Contact = () => {
 
 	return (
 		<>
-			<Box className={classes.contactContainer} id="section4">
+			<Box className={classes.contactContainer} id="contactSection">
 				<Grid container>
 					<Grid item md={12} lg={12}>
 						<Box sx={{ pl: 20 }}>
